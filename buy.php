@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Money lover</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style1.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script language="javascript" type="text/javascript" src="ajax.js"></script>
+  <script type="text/javascript" src="http://www.phpzag.com/demo/delete-records-with-bootstrap-confirm-modal-using-php-mysql/script/bootbox.min.js"></script>
+	<link rel="shortcut icon" href="pexels-photo-221174.png.jpg" />
+ 
+   <!-- font-awesome for sidebar -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body>
+
+
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-black w3-animate-top w3-xxlarge" style="display:none;padding-top:150px" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-black w3-xxlarge w3-padding w3-display-topright" style="padding:6px 24px">
+    <i class="fa fa-remove"></i>
+  </a>
+    <div class="w3-bar-block w3-center">
+    <a href="home.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3><i class="fa fa-home" style="font-size:18px;color:red">&nbsp;&nbsp;Home</i></h3></a>
+	<a href="explain.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Explain</h3></a>
+    <a href="Username.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3><i class="fa fa-key" style="font-size:18px;color:red">&nbsp;&nbsp;Creat password</i></h3></a>
+	<a href="account.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Creat new account</h3></a>
+    <a href="buy.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Cost management(buy)</h3></a>
+    <a href="year.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3><i class="fa fa-calendar-check-o" style="font-size:18px;color:red">&nbsp;&nbsp;Expenditure of year </i></h3></a>
+	<a href="month.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Expenditure of year,month </h3></a>
+	<a href="day.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Expenditure of year,month,day </h3></a>
+	<a href="update.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Cost update (report of last bound to cost)</h3></a>
+	<a href="times.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Expenditure of between times</a>
+	<a href="Expenditure.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Expenditure of between times with product name</h3></a>
+	<a href="Report.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Report to expenditure of kind</h3></a>
+	<a href="Check.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Check management</h3></a>
+  </div>
+</nav>
+
+ <!-- font-awesome for sidebar -->
+<span class="w3-button w3-xxlarge  w3-right" style='color:white' onclick="w3_open()"><i class="fa fa-bars"></i></span> 
+
+<div class="jumbotron text-center" style='border:1px solid hsl(0, 100%, 25%)'>
+                <h3 align="center" style='color:black;font-family: "Times New Roman", Times, serif;'>Money lover</h3>  
+                
+				<h3 align="center" style='color:GREY;font-family: "Times New Roman", Times, serif;'>( COST MANAGEMENT )</h3> 
+				
+				<!-- date to show in php -->
+<div class="pull-right">
+ <h3 style='color:blue' id='date'><?php $date=date("d-m-Y ");echo $date;?></h3>
+	</div>
+    	</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <center><h2>PHP CRUD TUTORIAL</h2></center>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pull-right">
+                    <button class="btn btn-primary" class="add_new_user" id="add_new_user"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;Add New</button>
+                </div>
+                </br></br>
+                 <table class="table table-striped table-responsive" id="usersdata" style='width: 70%;border-radius: 15px 50px 30px 5px;'>
+                    <tr style="background-color: lightgrey;">
+                        <th style="font-family: 'Times New Roman', Times, serif;border-radius: 0 50px 30px 5px;">Product Name</th>
+						<th style="font-family: 'Times New Roman', Times, serif;border-radius: 15px 50px 30px 5px;">Amount</th>
+						<th style="font-family: 'Times New Roman', Times, serif;;text-align:center;border-radius: 15px 50px 30px 5px;">Expenditure kind</th>
+						<th style="font-family: 'Times New Roman', Times, serif;;text-align:center;border-radius: 15px 50px 30px 5px;">Price</th>
+                        
+                        <th>Action</th>
+                    </tr>
+ 
+                   
+                </table>
+            </div>
+        </div>
+    </div>    
+</body>
+ 
+<div class="modal fade" id="add_new_user_modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+           
+            <div class="modal-body">
+                <form method="POST" role="form">
+ 
+ 			 <table class="table"> 
+
+                       <tr style='  background-color: lightgrey;'>  
+		<th style='text-align:center;font-family: "Times New Roman", Times, serif;'> <h3 style='color:red;font-family: "Times New Roman", Times, serif;'><label>Bank Name</label></h3></th>  <th style='text-align:center;'>
+					   <h3 style='color:black;font-family: "Times New Roman", Times, serif;'><label>Account Name</label></h3></th> 
+					   </tr>
+ 
+<?php 
+ $connect = mysqli_connect("localhost", "root", "", "makharej"); 
+$sql="SELECT DISTINCT bank,Account FROM produ WHERE Price='' ORDER BY id DESC";
+$result=mysqli_query($connect,$sql);
+$serialnumber=0;
+$counter=0;
+while($row=mysqli_fetch_array($result))
+{
+$serialnumber++;
+?> 
+ 
+                    <div class="form-group"><tr>
+                        
+                 <td style='text-align:center;'><p class='h5'><i><span><?php echo $row['bank']; ?></span>
+				 <input type="radio" name="bank" class="bank cell" id="bank" value="<?php echo $row['bank']; ?>" required ></i>					
+                 </p>
+				 </td>
+               <td style='text-align:center;'><p class='h5'><i><span><?php echo $row['Account']; ?></span>
+			   <input type="radio" name="Account" class="Account cell" id="Account" value="<?php echo $row['Account']; ?>" required ></i>
+			   			   
+                 </p>
+			   </td>
+                    </div></tr>
+ <?php 
+$counter++;
+ } 
+ ?>
+ </table >
+                   <div class="form-group">
+                        <label style='font-family: "Times New Roman", Times, serif'><p  style='color:black; padding: 2px 8px;border-radius: 4px;; background-color:lightgrey;' >Product Name:</p></label>&nbsp;&nbsp;&nbsp;<span class="name error"></span> 
+                        <input type="text" class="form-control" id="name" name="name" placeholder="enter name of product" style='background-color: lightgrey;border:2px solid grey;color:blue;font-family:italic;' required>
+                    </div>
+ 
+                  		  <div class="form-group">
+                        <label style='font-family: "Times New Roman", Times, serif;'><p style='color:black; padding: 2px 8px;border-radius: 4px;; background-color:lightgrey;'>Explain to buy:</p></label>&nbsp;&nbsp;&nbsp;<span class="buy error"></span>
+                        <textarea type="text" class="form-control" id="buy" name="buy" placeholder="buy" style='background-color: lightgrey;border:2px solid grey;color:blue;font-family:italic;'></textarea>
+                    </div>
+ 
+ <div class="row">
+            <div class="col-md-6">
+                    <div class="form-group">
+                       <label for="" style='font-family: "Times New Roman", Times, serif;color:black; padding: 2px 8px;border-radius: 4px;; background-color:lightgrey;'>Expenditure kind:&nbsp;&nbsp;</label>&nbsp;&nbsp;&nbsp;<span class="qty error"></span><BR>
+						<p class='h5'><i><input type="radio" name="gender" class="gender cell" value="cash" id="realize"> cash</p></i>
+                        <p class='h5'><i><input type="radio" name="gender" class="gender cell" value="bank" id="bank1"> bank</p></i>
+                    </div>
+					
+					<input type="hidden" id="action" name="action" value="add">
+                    <input type="hidden" id="id" name="id" value="">
+                    <button type="button" id="submit" class="btn btn-warning" onclick="myFunction()">Submit</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+					
+					 <div class="col-md-4">		
+					<div class="form-group">
+                        <label style='font-family: "Times New Roman", Times, serif;color:black; padding: 2px 8px;border-radius: 4px;; background-color:lightgrey;'>Price:</label>&nbsp;&nbsp;&nbsp;<span class="Price error" ></span>
+                        <input type="number" class="form-control" id="Price" name="Price" placeholder="Price" style='background-color: lightgrey;border:2px solid grey;color:blue;font-family:italic;' required><br>
+						</div>
+						</div>
+						</div>
+                </form>               
+            </div>
+            <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div> -->
+        </div>
+    </div>
+</div>
+ 
+<!-- Script for add new data -->
+<script type="text/javascript">
+$("#add_new_user").click(function(){
+    $("#action").val("add");
+	$("#name").val("");
+	$("#buy").val("");
+	$("#Price").val("");
+    $("#id").val("");
+    $("#add_new_user_modal").modal('show');
+});
+ 
+$("#submit").click(function(){
+    var name = $('#name').val();
+	var buy = $('#buy').val();
+	var bank = $("input:radio[name='bank']:checked").val();
+	var Account = $("input:radio[name='Account']:checked").val();
+    var gender = $("input:radio[name='gender']:checked").val();
+    var Price = $('#Price').val();
+    var html = "";
+    var action = $("#action").val();
+    var id = $("#id").val();
+    var valid = true;
+ 
+     if(bank == "" || bank == null)
+		 
+           {  
+		        valid = false;
+                bootbox.alert(" bank is required");  
+           }
+		   else
+    {
+        $(".bank").html("");    
+    }
+
+	if(Account == "" || Account == null)
+		 
+           {  
+		        valid = false;
+                bootbox.alert(" Account is required");  
+           }
+		   else
+    {
+        $(".Account").html("");    
+    }
+   
+ 
+    if(valid == true)
+    {
+        var form_data = {
+            name : name,
+			buy : buy,
+			bank : bank,
+			Account : Account,
+			gender : gender,
+			Price : Price,
+            action : action,
+            id : id
+        };
+         
+        $.ajax({
+            url : "insertprodu.php",
+            type : "POST",
+            data : form_data,
+            dataType : "json",
+            success: function(response){
+                if(response['valid']==false)
+                {
+                    bootbox.alert(response['msg']);
+                }
+                else
+                {
+                    if(action == 'add')
+                    {
+                        $("#add_new_user_modal").modal('hide');
+                        html += "<tr class=user_"+response['id']+">";
+                         html += "<td style='color:blue;font-weight:bold;border-radius: 1px 10px 10px 1px;'>"+response['name']+"</td>";
+					html += "<td style='color:rgb(60, 60, 60);font-weight:bold;border-radius: 1px 10px 10px 1px;'>"+response['amount']+"</td>";
+					html += "<td style='color:orange;font-weight:bold;text-align:center;border-radius: 1px 10px 10px 1px;'>"+response['Comment']+"</td>";
+                     html += "<td style='color:hsl(0, 100%, 25%);font-weight:bold;text-align:center;border-radius: 1px 10px 10px 1px;'>"+response['Price']+"</td>";
+                        html += "<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href='javascript:void(0);' onclick='delete_user("+response['id']+");'>&nbsp;<i class='glyphicon glyphicon-trash'></i></a></td>";
+                        html += "<tr>";
+                        $("#usersdata").append(html);
+						$("<td style='color:black;font-weight:bold'><h1 style='text-color:red'>Reamain Cost</h1>&nbsp;&nbsp;&nbsp;"+response['cost']+"</td>").each(function(){
+							
+                         bootbox.alert($(this).text());
+                         });
+                    }
+                    else
+                    {
+                        window.location.reload();
+                    }
+                }
+            }
+        });
+    }
+    else
+    {
+        return false;
+    }
+});
+ 
+
+ 
+function delete_user(id) {
+    var form_data = {
+        id : id 
+    };
+    $.ajax({
+        url : "deleteprodu.php",
+        method : "POST",
+        data : form_data,
+        success : function(response) {
+            $(".user_"+id).css("background","red");
+            $(".user_"+id).fadeOut(1000);
+        }
+    });
+}
+</script>
+ 
+<script>
+// Open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.width = "100%";
+    document.getElementById("mySidebar").style.display = "block";
+}
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+
+ <style>
+ body{   background-color: #808080;}
+ </style>
+ 
+ </body>
+</html>
