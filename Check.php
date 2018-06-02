@@ -1,56 +1,34 @@
 <!DOCTYPE html>
 <html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Money lover</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-   <!-- font-awesome for sidebar -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="shortcut icon" href="wallet-with-american-money-300x200-1.jpg" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-   <script type="text/javascript" src="http://www.phpzag.com/demo/delete-records-with-bootstrap-confirm-modal-using-php-mysql/script/bootbox.min.js"></script>
-<body>
+  <title>Money lover</title>
+  <meta charset="utf-8">
+  <?php
+  
+include("navcost.php");
+?>
+ 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="style.css">
+	  
+ 
+
+	 <?php
 
 
-
-<!-- Sidebar -->
-<nav class="w3-sidebar w3-black w3-animate-top w3-xxlarge" style="display:none;padding-top:150px" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-black w3-xxlarge w3-padding w3-display-topright" style="padding:6px 24px">
-    <i class="fa fa-remove"></i>
-  </a>
-   <div class="w3-bar-block w3-center">
-    <a href="home.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3><i class="fa fa-home" style="font-size:18px;color:red">&nbsp;&nbsp;Home</i></h3></a>
-	<a href="explain.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Explain</h3></a>
-    <a href="Username.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3><i class="fa fa-key" style="font-size:18px;color:red">&nbsp;&nbsp;Creat password</i></h3></a>
-	<a href="account.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Creat new account</h3></a>
-    <a href="buy.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Cost management(buy)</h3></a>
-    <a href="year.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3><i class="fa fa-calendar-check-o" style="font-size:18px;color:red">&nbsp;&nbsp;Expenditure of year </i></h3></a>
-	<a href="month.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Expenditure of year,month </h3></a>
-	<a href="day.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Expenditure of year,month,day </h3></a>
-	<a href="update.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Cost update (report of last bound to cost)</h3></a>
-	<a href="times.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Expenditure of between times</a>
-	<a href="Expenditure.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Expenditure of between times with product name</h3></a>
-	<a href="Report.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Report to expenditure of kind</h3></a>
-	<a href="Check.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Check management</h3></a>
-  </div>
-</nav>
-
- <!-- font-awesome for sidebar -->
-<span class="w3-button w3-xxlarge  w3-right" style='color:white' onclick="w3_open()"><i class="fa fa-bars"></i></span> 
-
-
-
-<div class="jumbotron text-center" style='border:1px solid hsl(0, 100%, 25%)'>
-                <h3 align="center" style='color:black;font-family: "Times New Roman", Times, serif;'>Money lover</h3>
-                 <h3 align="center" style='color:gray;font-family: "Times New Roman", Times, serif;'>( CHECK MANAGEMENT )</h3>				
-               <!-- show date in header -->
-             <div class="pull-right">
-              <h3 style='color:blue' id='date'><?php $date=date("d-m-Y ");echo $date;?></h3>
-			  </div>
-			  
-			  <div class="pull-left">
+include("headerr.php");
+include("js.php");
+?>		
+	</head>
+	
+<body style=' background-color: #808080;'>
+    <div class="container">
+        <div class="row">
+            
+                <center>			<h3 style='color:white;font-family: "Times New Roman", Times, serif;'>( CHECK MANAGEMENT )</h3> </center> 
+<div class="pull-left">
 	            <?php 
                     include 'configg.php';
 					
@@ -63,46 +41,46 @@
 					if($rows>0)
                     {
 					echo '<br>';
+					$serialnumber=0;
+                     $counter=0;
 					while($data = mysqli_fetch_array($query))
-                        {  $name =$data['name'];  echo "<p id='plsme'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:red;'>the <b><i>ALARM</b></i> OF<span style='color:orange;'> $name</span> CHECK!</p></span>"; 
+                        { 
+					$serialnumber++;
+
+					$name =$data['name'];  echo "<p id='' style='color:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:white;'>the <b><i>ALARM</b></i> OF<span style='color:orange;'> $name</span> CHECK!</p></span>"; $counter++;
+					
 					}
-				}
+				}       
 					
 					?>
 				</div>
-						</div>		
-			
-<body>
-    <div class="container">
-        
-        <br>
+        </div>
+		
         <div class="row">
             <div class="col-md-12">
                 <div class="pull-right">
      <button class="btn btn-primary" class="add_new_user" id="add_new_user" style=' background-color: orange;'><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;Add New</button>
                 </div>
                 </br></br>
+				
 				<!-- show table in php -->
    <table class="table table-striped table-responsive" id="usersdata">
     <tr>
-<th style='text-align:center;font-family: "Times New Roman", Times, serif; background-color:blue;' class='th'><h4 style='color:white;'>Bank Name</h4></th>
-<th style='text-align:center;font-family: "Times New Roman", Times, serif;background-color:orange;' class='th'><h4 style='color:white;'>Person Name</h4></th> 
-<th style='text-align:center;font-family: "Times New Roman", Times, serif;background-color:red;' class='th'><h4 style='color:white;'>Check Number</h4></th> 
-<th style='text-align:center;font-family: "Times New Roman", Times, serif;background-color:#a65959;' class='th'> <h4 style='color:white;'>Mony Amount</h4></th>
-<th style='text-align:center;font-family: "Times New Roman", Times, serif;background-color:grey;' class='th'> <h4 style='color:white;'>Check Kind</h4></th>
-<th style='text-align:center;font-family: "Times New Roman", Times, serif;background-color:#990000;' class='th'> <h4 style='color:white;'>Spend</h4></th>
-<th style='text-align:center;font-family: "Times New Roman", Times, serif;background-color:black;' class='th'> <h4 style='color:white;'>Comment</h4></th>
-<th style='text-align:center;font-family: "Times New Roman", Times, serif;background-color:#8000ff;' class='th'> <h4 style='color:white;'> Pay date</h4></th>
-<th style='text-align:center;font-family: "Times New Roman", Times, serif;background-color:#bf00ff;' class='th'><h4 style='color:white;'>Alarm Pay date</h4></th>
+<th style='text-align:center;font-family: "Times New Roman", Times, serif; background-color:blue;border-radius: 15px 50px 30px 5px;' class='th'><h5 style='color:white;'>Bank Name</h5></th>
+<th style='text-align:center;font-family: "Times New Roman", Times, serif;background-color:orange;border-radius: 15px 50px 30px 5px;' class='th'><h5 style='color:white;'>Person Name</h5></th> 
+<th style='text-align:center;font-family: "Times New Roman", Times, serif;background-color:red;border-radius: 15px 50px 30px 5px;' class='th'><h5 style='color:white;'>Check Number</h5></th> 
+<th style='text-align:center;font-family: "Times New Roman", Times, serif;background-color:#a65959;border-radius: 15px 50px 30px 5px;' class='th'> <h5 style='color:white;'>Mony Amount</h5></th>
+<th style='text-align:center;font-family: "Times New Roman", Times, serif;background-color:grey;border-radius: 15px 50px 30px 5px;' class='th'> <h5 style='color:white;'>Check Kind</h5></th>
+<th style='text-align:center;font-family: "Times New Roman", Times, serif;background-color:#990000;border-radius: 15px 50px 30px 5px;' class='th'> <h5 style='color:white;'>Spend</h5></th>
+<th style='text-align:center;font-family: "Times New Roman", Times, serif;background-color:black;border-radius: 15px 50px 30px 5px;' class='th'> <h5 style='color:white;'>Comment</h5></th>
+<th style='text-align:center;font-family: "Times New Roman", Times, serif;background-color:#8000ff;border-radius: 15px 50px 30px 5px;' class='th'> <h5 style='color:white;'> Pay date</h5></th>
+<th style='text-align:center;font-family: "Times New Roman", Times, serif;background-color:#bf00ff;border-radius: 15px 50px 30px 5px;' class='th'><h5 style='color:white;'>Alarm Pay date</h5></th>
 <th style='text-align:center;font-family: "Times New Roman", Times, serif;' class='th'><h4 style='color:black;'>Action</h4></th>
    </tr>
- <style>
- .th{border-radius: 15px 50px 30px 5px;}
- .h4{padding: 2px 8px;}
- .p{ padding: 2px 8px;}
- </style>
+
+ 
                     <?php 
-                    include 'configg.php';
+                    
 					$date=date("Y");$date2=date("m");$date3=date("d");
                     $sql = "SELECT * FROM `check1`";
 					
@@ -114,15 +92,15 @@
                         { 
                     ?> 
                <tr style='  background-color: lightgrey;' class="user_<?php echo $data['id']; ?>">  
-  <td style='text-align:center;font-weight: bold;color:blue;font-style: italic;'><h4><?php echo $data['name']; ?><h4></td> 
-  <td style='text-align:center;font-weight: bold;color:orange;font-style: italic;'><h4><?php echo $data['person']; ?><h4></td>
-  <td style='text-align:center;font-weight: bold;color:red;font-style: italic;'><h4><?php echo $data['number']; ?><h4></td>
-  <td style='text-align:center;font-weight: bold;color:#a65959;font-style: italic;'><h4><?php echo $data['Amount']; ?><h4></td>
-  <td style='text-align:center;font-weight: bold;color:grey;font-style: italic;'><h4><?php echo $data['gender']; ?><h4></td>
-  <td style='text-align:center;font-weight: bold;color:#990000;font-style: italic;'><h4><?php echo $data['gender1']; ?><h4></td>
-  <td style='text-align:center;font-weight: bold;color:black;font-style: italic;'><h4><?php echo $data['Comment']; ?><h4></td> 
-  <td style='text-align:center;font-weight: bold;color:#8000ff;font-style: italic;'><abbr  title='Notice: Year /month /day'><h4><?php echo $data['pay']; ?><h4></td></abbr> 
-  <td style='text-align:center;font-weight: bold;color:#bf00ff;font-style: italic;'><h4><?php echo $data['pay6']; ?><h4></td>
+  <td style='text-align:center;font-weight: bold;color:blue;font-style: italic;'><h5><?php echo $data['name']; ?><h5></td> 
+  <td style='text-align:center;font-weight: bold;color:orange;font-style: italic;'><h5><?php echo $data['person']; ?><h5></td>
+  <td style='text-align:center;font-weight: bold;color:red;font-style: italic;'><h5><?php echo $data['number']; ?><h5></td>
+  <td style='text-align:center;font-weight: bold;color:#a65959;font-style: italic;'><h5><?php echo $data['Amount']; ?><h5></td>
+  <td style='text-align:center;font-weight: bold;color:grey;font-style: italic;'><h5><?php echo $data['gender']; ?><h5></td>
+  <td style='text-align:center;font-weight: bold;color:#990000;font-style: italic;'><h5><?php echo $data['gender1']; ?><h5></td>
+  <td style='text-align:center;font-weight: bold;color:black;font-style: italic;'><h5><?php echo $data['Comment']; ?><h5></td> 
+  <td style='text-align:center;font-weight: bold;color:#8000ff;font-style: italic;'><abbr  title='Notice: Year /month /day'><h5><?php echo $data['pay']; ?><h4></td></abbr> 
+  <td style='text-align:center;font-weight: bold;color:#bf00ff;font-style: italic;'><h5><?php echo $data['pay6']; ?><h5></td>
   <td style='text-align:center;font-family: ;color:dark grey;font-style: italic;'><h4>
   <abbr  title="Edit detail"> <a href="javascript:void(0);" style="color:black" onclick="edit_user('<?php echo $data['id']; ?>')">
   <i class="glyphicon glyphicon-pencil"></i></a></abbr>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -245,7 +223,8 @@
 </div>
  
 <!-- Script for add new data -->
-<script type="text/javascript">
+  <script>
+
 $("#add_new_user").click(function(){  
     $("#action").val("add");
     $("#id").val("");
@@ -310,16 +289,16 @@ $("#submit").click(function(){
                         $("#add_new_user_modal").modal('hide');       
                         html += "<tr style='  background-color: lightgrey;font-style: italic;' class=user_"+response['id']+">"; 
    						
-						html += "<td style='text-align:center;font-weight: bold;color:blue;'><h4>"+response['name']+"</h4></td>";
-						 html += "<td style='text-align:center;font-weight: bold;color:orange'><h4>"+response['person']+"</h4></td>";
-						 html += "<td style='text-align:center;font-weight: bold;color:red'><h4>"+response['number']+"</h4></td>";
+						html += "<td style='text-align:center;font-weight: bold;color:blue;'><h5>"+response['name']+"</h5></td>";
+						 html += "<td style='text-align:center;font-weight: bold;color:orange'><h5>"+response['person']+"</h5></td>";
+						 html += "<td style='text-align:center;font-weight: bold;color:red'><h5>"+response['number']+"</h5></td>";
 						 html += "<td style='text-align:center;font-weight: bold;color:#a65959'><h4>"+response['Amount']+"</h4></td>";
-						 html += "<td style='text-align:center;font-weight: bold;color:grey'><h4>"+response['gender']+"</h4></td>";
-						 html += "<td style='text-align:center;font-weight: bold;color:#990000'><h4>"+response['gender1']+"</h4></td>";
-						 html += "<td style='text-align:center;font-weight: bold;color:black'><h4>"+response['Comment']+"</h4></td>";
-					html += "<td style='text-align:center;font-weight: bold;color:#8000ff'><abbr  title='Notice: Year /month /day'><h4>"+response['pay']+"</abbr></h4></td>";
-					html += "<td style='text-align:center;font-weight: bold;color:#bf00ff'><h4>"+response['pay6']+"</h4></td>";
-                        html += "<td style='text-align:center;font-family: ;color:dark grey'><h4><abbr  title='Edit detail'><a style='color:black' href='javascript:void(0);' onclick='edit_user("+response['id']+");'><i class='glyphicon glyphicon-pencil'></i></a></abbr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<abbr  title='Notice: as soon click your choose will become delete'><a href='javascript:void(0);' style='color:black' onclick='delete_user("+response['id']+");'><i class='glyphicon glyphicon-trash'></i></a></abbr></h4></td>";
+						 html += "<td style='text-align:center;font-weight: bold;color:grey'><h5>"+response['gender']+"</h5></td>";
+						 html += "<td style='text-align:center;font-weight: bold;color:#990000'><h5>"+response['gender1']+"</h5></td>";
+						 html += "<td style='text-align:center;font-weight: bold;color:black'><h5>"+response['Comment']+"</h5></td>";
+					html += "<td style='text-align:center;font-weight: bold;color:#8000ff'><abbr  title='Notice: Year /month /day'><h5>"+response['pay']+"</abbr></h5></td>";
+					html += "<td style='text-align:center;font-weight: bold;color:#bf00ff'><h5>"+response['pay6']+"</h5></td>";
+                        html += "<td style='text-align:center;font-family: ;color:dark grey'><h5><abbr  title='Edit detail'><a style='color:black' href='javascript:void(0);' onclick='edit_user("+response['id']+");'><i class='glyphicon glyphicon-pencil'></i></a></abbr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<abbr  title='Notice: as soon click your choose will become delete'><a href='javascript:void(0);' style='color:black' onclick='delete_user("+response['id']+");'><i class='glyphicon glyphicon-trash'></i></a></abbr></h5></td>";
                         html += "<tr>";
                         $("#usersdata").append(html);
                     }
@@ -389,64 +368,11 @@ function delete_user(id) {
         }
     });
 }
+
+
 </script>
 
-<script>
-function maxLengthCheck(object) {
-if (object.value.length > object.maxLength)
-  object.value = object.value.slice(0, object.maxLength)
-}
 
-function isNumeric (evt) {
-var theEvent = evt || window.event;
-var key = theEvent.keyCode || theEvent.which;
-key = String.fromCharCode (key);
-var regex = /[0-9]|\./;
-if ( !regex.test(key) ) {
-  theEvent.returnValue = false;
-  if(theEvent.preventDefault) theEvent.preventDefault();
-}
-}
-</script>
-
-  <style>
-  
- body{   background-color: #808080;}
- 
- a.button,a.tp-button,button,input[type="submit"],input[type="reset"],input[type="button"]{display:inline-block;padding:11px 20px;margin-bottom:15px;cursor:pointer;margin-right:7px;border:0;border-radius:0px;position:relative;overflow:hidden;-webkit-box-shadow:inset 0 0 0 1px rgba(0,0,0,.03);box-shadow:inset 0 0 0 1px rgba(0,0,0,.03);background-image:url(../images/box_shadow_button.png);background-repeat:repeat-x}
-
-
-@media only screen and (min-width: 768px){
-	a.button:after,a.tp-button:after,button:after,input[type="submit"]:after,input[type="reset"]:after,input[type="button"]:after{content:"";position:absolute;left:0;top:0;height:100%;width:0;z-index:1;-webkit-transition:all .5s;-moz-transition:all .5s;transition:all .7s;background:rgba(0,0,0,.05)}
-
-	a.button:hover:after,a.tp-button:hover:after,button:hover:after,input[type="submit"]:hover:after,input[type="reset"]:hover:after,input[type="button"]:hover:after{width:100%}
-}
-
-
-.cell {cursor: cell;}
-				
-
- </style>
- 
-<script>
-// Open and close sidebar
-function w3_open() {
-    document.getElementById("mySidebar").style.width = "100%";
-    document.getElementById("mySidebar").style.display = "block";
-}
-
-function w3_close() {
-    document.getElementById("mySidebar").style.display = "none";
-}
-</script>
- 
-
-
-<script>
-$(document).ready(function() {
-  $('#plsme').fadeOut(10000); // 5 seconds x 1000 milisec = 5000 milisec
-});
-</script>
-
-</body>
+	<!-- the end -->	
+ </body>
 </html>
