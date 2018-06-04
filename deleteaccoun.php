@@ -1,6 +1,3 @@
-
-
-
 <?php 
 include 'configg.php';
  $id = '';
@@ -13,7 +10,7 @@ $query = mysqli_query($conn, $sql);
  
 if($query)
 {
-    echo "Data successfully removed.";
+    echo "bank deleted";
 }
 ?>
 
