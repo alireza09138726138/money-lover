@@ -4,7 +4,7 @@
     <title>{$title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    {include file="asset.php.tpl"}
+    {include file="asset.php"}
     <style>
         .bgimg {
             background-position: cover;
