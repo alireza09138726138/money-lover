@@ -42,7 +42,7 @@
         <i class="fa fa-remove"></i>
     </a>
     <div class="w3-bar-block w3-center">
-        <a href="home.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><i class="fa fa-home" style="font-size:18px;color:red">&nbsp;&nbsp;</i><h3>Home</h3></a>
+        <a href="/" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><i class="fa fa-home" style="font-size:18px;color:red">&nbsp;&nbsp;</i><h3>Home</h3></a>
         <a href="explain.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Explain</h3></a>
         <a href="Username.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><i class="fa fa-key" style="font-size:18px;color:red">&nbsp;&nbsp;</i><h3>Creat password</h3></a>
         <a href="account.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Creat new account</h3></a>
@@ -63,6 +63,7 @@
 <!-- font-awesome for sidebar -->
 <span class="w3-button w3-xxlarge  w3-right" style='color:white' onclick="w3_open()"><i class="fa fa-bars"></i></span>
 
+<h1 style="color: white">Money Lover Index</h1>
 {*{include file={$password_template}}*}
 
 </body>
