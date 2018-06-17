@@ -4,22 +4,22 @@
 <head>
   <title>Money lover</title>
   <meta charset="utf-8">
-  <?php
-  
-include("navcost.php");
-?>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-  
- <?php
-include("headerr.php");
-include("js.php");
+  <link rel="shortcut icon" href="picture/pexels-photo-221174.png.jpg"/>
 
+<?php
+
+include("assets/sidebar/sidebar.php");
+
+include("assets/asset link,script/asset.php");
+
+include("headerr.php");
 ?>
 
 </head>
 
 <body style='background-color: #808080;'>
+
 <div class="container">
  <div class="row">
             
@@ -66,7 +66,7 @@ include("js.php");
                     <?php
                         }
                     } /*if condition*/
-                    ?>
+					?>
                       </table>
 				  
             </div>
@@ -122,99 +122,15 @@ include("js.php");
 </div>
   
   <script type="text/javascript" src="http://www.phpzag.com/demo/delete-records-with-bootstrap-confirm-modal-using-php-mysql/script/bootbox.min.js"></script>
-  <!-- Script for add new data -->
-  <script>
-
-
-$("#add_new_user").click(function(){    
-    $("#action").val("add");
-	$("#bank").val("");
-	$("#Account").val("");
-	$("#cost").val("");
-	$("#Limite").val("");
-    $("#id").val("");
-    $("#add_new_user_modal").modal('show');
-});
+  
+   <!-- Script for add new data -->
+  <script type="text/javascript" src="assets/js/account.js"></script>
  
-$("#submit").click(function(){
-    var bank = $('#bank').val();
-    var Account = $('#Account').val();
-    var cost = $('#cost').val();
-	var Limite = $('#Limite').val();
-    var html = "";
-    var action = $("#action").val();
-    var id = $("#id").val();
-    var valid = true;
-     
-    
- 
-    if(valid == true)
-    {
-        var form_data = {
-            bank : bank,
-			Account : Account,
-			cost : cost,
-			Limite : Limite,
-            action : action,
-            id : id
-        };
-         
-        $.ajax({
-            url : "insertaccount.php",
-            type : "POST",
-            data : form_data,
-            dataType : "json",
-            success: function(response){
-                if(response['valid']==false)
-                {
-                    bootbox.alert(response['msg']);
-                }
-                else
-                {
-                    if(action == 'add')
-                    {
-                        $("#add_new_user_modal").modal('hide');
-                        html += "<tr style='  background-color: lightgrey;' class=user_"+response['id']+">";
-                        html += "<td style='text-align:center;font-weight: bold;color:blue'><h3><i><b>"+response['bank']+"</b></i></h3></td>";
-						html += "<td style='text-align:center;font-weight: bold;color:red'><h3><i><b>"+response['Account']+"</b></i></h3></td>";
-                        html += " <td style='text-align:center;font-family: ;color:dark grey'><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='javascript:void(0);' onclick='delete_user("+response['id']+");'><i class='glyphicon glyphicon-trash'></i></a></h3></td>";
-                        html += "<tr>";
-                        $("#usersdata").append(html);
-                    }
-                    else
-                    {
-                        window.location.reload();
-                    }
-                }
-            }
-        });
-    }
-    else
-    {
-        return false;
-    }
-});
- 
-
- 
-function delete_user(id) {
-    var form_data = {
-        id : id 
-    };
-    $.ajax({
-        url : "deleteaccoun.php",
-        method : "POST",
-        data : form_data,
-        success : function(response) {
-            $(".user_"+id).css("background","red");
-            $(".user_"+id).fadeOut(1000);
-        }
-    });
-}
-</script>
+  
 
 
  
 <!-- the end -->	
  </body>
 </html>
+
