@@ -11,7 +11,7 @@
 
 include("assets/sidebar/sidebar.php");
 
-include("assets/asset link,script/asset.php");
+include("assets/asset link-script/asset.php");
 
 include("headerr.php");
 ?>
