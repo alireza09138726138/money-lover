@@ -6,7 +6,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <?php
-include("assets/asset link,script/asset.php");
+include("assets/asset link-script/asset.php");
 ?> 
  <script>
 $(document).ready(function(){
