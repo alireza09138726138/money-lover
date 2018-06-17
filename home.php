@@ -7,5 +7,5 @@ $smarty = new Smarty;
 $smarty->assign('title', 'Money lover');
 
 $smarty->assign('date', $date);
-$smarty->display('passwordindexnot.tpl');
+$smarty->display('home.tpl');
 ?>
