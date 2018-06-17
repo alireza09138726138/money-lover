@@ -5,7 +5,7 @@
     <i class="fa fa-remove"></i>
   </a>
     <div class="w3-bar-block w3-center">
-    <a href="passwordindexnot.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><i class="fa fa-home" style="font-size:18px;color:red">&nbsp;&nbsp;</i><h3>Home</h3></a>
+    <a href="home.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><i class="fa fa-home" style="font-size:18px;color:red">&nbsp;&nbsp;</i><h3>Home</h3></a>
 	<a href="explain.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Explain</h3></a>
     <a href="Username.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><i class="fa fa-key" style="font-size:18px;color:red">&nbsp;&nbsp;</i><h3>Creat password</h3></a>
 	<a href="account.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Creat new account</h3></a>
