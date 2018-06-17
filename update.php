@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="picture/pexels-photo-221174.png.jpg"/>
   <?php
-include("assets/asset link,script/asset.php");
+include("assets/asset link-script/asset.php");
  include("assets/sidebar/sidebar.php");
 include("headerr.php");
 ?>
