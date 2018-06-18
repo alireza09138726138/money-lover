@@ -3,18 +3,12 @@
 <head>
   <title>Money lover</title>
   <meta charset="utf-8">
- <?php
-  
-include("navcost.php");
-?>
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
-	 
- 
-
- <?php
+  <link rel="shortcut icon" href="picture/pexels-photo-221174.png.jpg"/>
+  <?php
+include("assets/asset link-script/asset.php");
+ include("assets/sidebar/sidebar.php");
 include("headerr.php");
-include("js.php");
 ?>
 </head>
 			  

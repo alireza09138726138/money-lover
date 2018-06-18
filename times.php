@@ -1,17 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Money lover</title>
+  <title>Money lover</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
- 
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-   <?php
-  include("navcost.php");
+  <link rel="shortcut icon" href="picture/pexels-photo-221174.png.jpg"/>
+  <?php
+include("assets/asset link-script/asset.php");
+ include("assets/sidebar/sidebar.php");
 include("headerr.php");
-  include("js.php");
 ?>
 	
 <body style='background-color: #808080;'>
@@ -131,21 +128,6 @@ $counter++;}
 					
       </tbody>
    </table>
-		
-		
-  <style type="text/css">
-.h4 {
-  display: inline-block;
-  border-radius: 4px;
-  background-color:  lightgrey;
-  border: none;
-  color:  black;
-  text-align: center;
-  padding: 2px 2px;
-  width: 100px;
-  margin: 5px;
-}
-</style>
 
 <!-- the end -->	
  </body>

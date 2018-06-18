@@ -3,20 +3,12 @@
 <head>
   <title>Money lover</title>
   <meta charset="utf-8">
-  <?php
-  
-include("navcost.php");
-?>
-  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
-
- 
-
- <?php
+  <link rel="shortcut icon" href="picture/pexels-photo-221174.png.jpg"/>
+  <?php
+include("assets/asset link-script/asset.php");
+ include("assets/sidebar/sidebar.php");
 include("headerr.php");
-
-include("js.php");
 ?>
 </head>
 	
@@ -34,9 +26,6 @@ include("js.php");
 	<form class="form" action="#" method="post" name="calculator">
 	
 <table>
-
-
-
 <th style='color:black;padding: 2px 1px;background-color:  lightgrey;'>&nbsp;&nbsp;Rrport to expenditure of kind:</th>
 
 <?php 
@@ -49,8 +38,7 @@ while($row=mysqli_fetch_array($result))
 {
 $serialnumber++;
 ?> 
- 
-                    <tr>
+  <tr>
                         
                  <th style='text-align:center;'><h2 class='h5' style='color:grey'><b><span ><?php echo $row['Comment']; ?></span></b></h2>
 				 <input type="radio" name="product" class="bank cell" id="product" value="<?php echo $row['Comment']; ?>" required >	</i>				
@@ -146,3 +134,4 @@ $counter++;}
 
 </body>
 </html>
+
