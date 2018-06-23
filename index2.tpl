@@ -1,14 +1,11 @@
 {extends file="layout.tpl"}
 
 {block name="content"}
-<span id='p'>{include file="assets/sidebar/sidebar.php"}</span> 
-
-   <div class="w3-display-middle w3-center c">
-        <span class="w3-text-white w3-jumbo w3-animate-top" style="font-size:90px;font-family:weight;font-family: 'Times New Roman', Times, serif;"><b>MONEY<br>LOVER</b></span>
+    <div class="w3-display-middle w3-center c">
+        <span class="w3-text-white w3-jumbo w3-animate-top" style="font-size:90px;font-family:weight"><b>MONEY<br>LOVER</b></span>
     </div>
-	
- {if $show_table}
-	
+
+    {if $show_table}
         <div class="well" id='table'>
             <form action="" method="post" name="Login_Form" onsubmit="return validateForm(this);">
 
@@ -47,20 +44,7 @@
             </form>
         </div>
     {/if}
-	                       
-	{if !$show_table}
-<script type="text/javascript">$(document).ready(function() {   $("#p").show();  }) </script>
-    {/if}
-
     {if $wrong_credentials}
-	<script type="text/javascript">
-	$(document).ready(function() { bootbox.alert("<h1 style='color:red;text-align:center'>!Error:</h1>....<p style='color:black'>please more care</p>");})</script>
-	{/if}
-	
-	{if $honest_credentials}
-	
-       <script type="text/javascript"> $(document).ready(function() {  $("#p").show(); $("#table").hide();  bootbox.alert("wellcome");}) </script>
+        <h1 id='plsme' style='color:red;padding:0px 0px;color: white;border-radius:2px'>the <b><i>fill</b></i> is wrong....please more care!</h1>
     {/if}
-
-
 {/block}
