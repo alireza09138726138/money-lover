@@ -1,4 +1,4 @@
-{extends file="layoutall.tpl"}
+{extends file="layout.tpl"}
 
 {block name="content"}
 
@@ -6,7 +6,7 @@
 <div class="container">
         <div class="row">
             
-                <center>			<h3 style='color:white;font-family: "Times New Roman", Times, serif;'>( PASSWORD CREATE )</h3> </center>  
+                <center>			<h3 class="font colorwhite" >( PASSWORD CREATE )</h3> </center>  
            
         </div>
 		
@@ -17,23 +17,22 @@
                     <button class="btn btn-primary add_new_user" id="add_new_user"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;create password</button>
                 </div>
                 </br></br>
+				
                 <table class="table table-striped table-responsive" id="usersdata">
-                    <tr style='background-color: blue;'>
-                        <th style='text-align:center;background-color: lightgrey;font-family: "Times New Roman", Times, serif;border-radius: 15px 50px 30px 5px;'>Password</th>
-                        <th style='text-align:center;background-color: lightgrey;font-family: "Times New Roman", Times, serif;border-radius: 15px 50px 30px 5px;' >username</th>
-                        <th style='text-align:center;background-color: lightgrey;font-family: "Times New Roman", Times, serif;border-radius: 15px 50px 30px 5px;'>Action</th>
+                    <tr class='backblue'>
+                        <th class='backlightgrey center font borderradius'>Password</th>
+                        <th class='backlightgrey center font borderradius' >username</th>
+                        <th class='backlightgrey center font borderradius'>Action</th>
                     </tr>
 					{foreach from=$rows item=row}
 					<tr class="user_{$row.id}">
-                        <td style='text-align:center;'><h3 style='background-color:green;color:white;padding:5px 5px;'><i>{$row.username}</i></h3></td>
-                        
-                        <td style='text-align:center;'><h3 style='background-color:green;color:white;padding:5px 5px;'><i>{$row.password}</i></h3></td>
-                        <td style='text-align:center;'>
-						<h3 style='background-color:green;color:white;padding:5px 5px;'>
-                            <a href="javascript:void(0);" style='color:lightgrey' onclick="edit_user('{$row.id}')"><i class="glyphicon glyphicon-pencil"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a href="javascript:void(0);" style='color:lightgrey' onclick="delete_user('{$row.id}')"><i class="glyphicon glyphicon-trash"></i></a>
+                        <td class='center '><h3 class='colorwhite backgreen padding' ><i>{$row.username}</i></h3></td>
+                        <td class='center ' ><h3 class='colorwhite backgreen padding'><i>{$row.password}</i></h3></td>
+                        <td class='center'><h3 class='colorwhite backgreen padding'  >
+                            <a href="javascript:void(0);" class='colorlightgrey' onclick="edit_user('{$row.id}')"><i class="glyphicon glyphicon-pencil"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="javascript:void(0);" class='colorlightgrey' onclick="delete_user('{$row.id}')"><i class="glyphicon glyphicon-trash"></i></a>
                         </h3>
-					</td>
+					  </td>
                    </tr>
 					{/foreach}
 					 </table>
@@ -75,5 +74,5 @@
 </div>
  
  <!-- Script for add new data -->
-   <script type="text/javascript" src="assets/js/username.js"></script>
+   <script type="text/javascript" src="assets/js/username.js"></script>  
  {/block}
