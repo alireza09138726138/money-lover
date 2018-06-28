@@ -1,4 +1,4 @@
-{extends file="layoutall.tpl"}
+{extends file="layout.tpl"}
 
 {block name="content"}
 
@@ -6,13 +6,13 @@
 <div class="container">
  <div class="row">
    <center>			
-    <h3 style='color:white;font-family: "Times New Roman", Times, serif;'>( CHECK MANAGEMENT )</h3> 
+    <h3 class="font colorwhite">( CHECK MANAGEMENT )</h3> 
 	 </center>  
        </div>
 	   
 			{foreach from=$rowss item=rowf}
 			{if $show_alarm}
-			<p id='' style='color:white'>...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='color:white;'>the <b><i>ALARM</b></i> OF&nbsp;<span style='color:orange;'> <i><b>{$rowf.name}</i></b>&nbsp;</span> CHECK!</p></span>
+			<p class='colorwhite'>...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span  class='colorwhite' >the <b><i>ALARM</b></i> OF&nbsp;<span class='colororange'> <i><b>{$rowf.name}</i></b>&nbsp;</span> CHECK!</p></span>
 			{/if}
             {/foreach}			
 			
@@ -21,52 +21,53 @@
             <div class="col-md-12">
 			
                 <div class="pull-right">
-     <button class="btn btn-primary add_new_user" id="add_new_user" style=' background-color: orange;'><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;Add New</button>
+     <button class="btn btn-primary add_new_user backorange" id="add_new_user"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;Add New</button>
                 </div>
                 </br></br>
 				
 				<!-- show table in php -->
    <table class="table table-striped table-responsive" id="usersdata">
     <tr>
-<th style='text-align:center;font-family: "Times New Roman", Times, serif; background-color:blue;border-radius: 15px 50px 30px 5px;' class='th'>
-<h5 style='color:white;'>Bank Name</h5></th>
-<th style='text-align:center;font-family: "Times New Roman", Times, serif;background-color:orange;border-radius: 15px 50px 30px 5px;' class='th'>
-<h5 style='color:white;'>Person Name</h5></th> 
-<th style='text-align:center;font-family: "Times New Roman", Times, serif;background-color:red;border-radius: 15px 50px 30px 5px;' class='th'>
-<h5 style='color:white;'>Check Number</h5></th> 
-<th style='text-align:center;font-family: "Times New Roman", Times, serif;background-color:#a65959;border-radius: 15px 50px 30px 5px;' class='th'> 
-<h5 style='color:white;'>Mony Amount</h5></th>
-<th style='text-align:center;font-family: "Times New Roman", Times, serif;background-color:grey;border-radius: 15px 50px 30px 5px;' class='th'>
- <h5 style='color:white;'>Check Kind</h5></th>
-<th style='text-align:center;font-family: "Times New Roman", Times, serif;background-color:#990000;border-radius: 15px 50px 30px 5px;' class='th'> 
-<h5 style='color:white;'>Spend</h5></th>
-<th style='text-align:center;font-family: "Times New Roman", Times, serif;background-color:black;border-radius: 15px 50px 30px 5px;' class='th'> 
-<h5 style='color:white;'>Comment</h5></th>
-<th style='text-align:center;font-family: "Times New Roman", Times, serif;background-color:#8000ff;border-radius: 15px 50px 30px 5px;' class='th'>
- <h5 style='color:white;'> Pay date</h5></th>
-<th style='text-align:center;font-family: "Times New Roman", Times, serif;background-color:#bf00ff;border-radius: 15px 50px 30px 5px;' class='th'>
-<h5 style='color:white;'>Alarm Pay date</h5></th>
-<th style='text-align:center;font-family: "Times New Roman", Times, serif;' class='th'><h4 style='color:black;'><b>Action</b></h4></th>
+<th  class='th center font backblue borderradius'>
+ <h5 class='colorwhite'>Bank Name</h5></th>
+<th class='th center font backorange borderradius'>
+ <h5 class='colorwhite'>Person Name</h5></th> 
+<th class='th center font backred borderradius'>
+ <h5 class='colorwhite'>Check Number</h5></th> 
+<th class='th center font backa65959 borderradius'> 
+ <h5 class='colorwhite'>Mony Amount</h5></th>
+<th class='th center font backgray borderradius'>
+ <h5 class='colorwhite'>Check Kind</h5></th>
+<th class='th center font color990000 borderradius'> 
+ <h5 class='colorwhite'>Spend</h5></th>
+<th class='th center font backblack borderradius'> 
+ <h5 class='colorwhite'>Comment</h5></th>
+<th class='th center font back8000ff borderradius'>
+ <h5 class='colorwhite'> Pay date</h5></th>
+<th class='th center font backbf00ff borderradius'>
+ <h5 class='colorwhite'>Alarm Pay date</h5></th>
+<th class='th center font'><h4 class='colorblack'><b>Action</b></h4></th>
    </tr>
 	   
 	   
 	   {foreach from=$rows item=row}
 	   
-	    <tr style='  background-color: lightgrey;' class="user_{$row.id}">  
-  <td style='text-align:center;font-weight: bold;color:blue;font-style: italic;'><h5>{$row.name}</h5></td> 
-  <td style='text-align:center;font-weight: bold;color:orange;font-style: italic;'><h5>{$row.person}</h5></td>
-  <td style='text-align:center;font-weight: bold;color:red;font-style: italic;'><h5>{$row.number}</h5></td>
-  <td style='text-align:center;font-weight: bold;color:#a65959;font-style: italic;'><h5>{$row.Amount}</h5></td>
-  <td style='text-align:center;font-weight: bold;color:grey;font-style: italic;'><h5>{$row.gender}</h5></td>
-  <td style='text-align:center;font-weight: bold;color:#990000;font-style: italic;'><h5>{$row.gender1}</h5></td>
-  <td style='text-align:center;font-weight: bold;color:black;font-style: italic;'><h5>{$row.Comment}</h5></td> 
-  <td style='text-align:center;font-weight: bold;color:#8000ff;font-style: italic;'><abbr  title='Notice: Year /month /day'><h5>{$row.pay}</h5></abbr></td> 
-  <td style='text-align:center;font-weight: bold;color:#bf00ff;font-style: italic;'><h5>{$row.pay6}</h5></td>
-  <td style='text-align:center;font-family: ;color:dark grey;font-style: italic;'>
-  <abbr  title="Edit detail"> <a href="javascript:void(0);" style="color:black" onclick="edit_user('{$row.id}')">
+	   <tr  class="backlightgrey user_{$row.id}">  
+  <td class="center fontbold colordate fontstyle"><h5>{$row.name}</h5></td> 
+  <td  class="center fontbold colororange fontstyle"><h5>{$row.person}</h5></td>
+  <td  class="center fontbold colorred fontstyle"><h5>{$row.number}</h5></td>
+  <td  class="center fontbold colora65959 fontstyle"><h5>{$row.Amount}</h5></td>
+  <td  class="center fontbold colorgrey fontstyle"><h5>{$row.gender}</h5></td>
+  <td  class="center fontbold color99000 fontstyle"><h5>{$row.gender1}</h5></td>
+  <td  class="center fontbold colorblack fontstyle"><h5>{$row.Comment}</h5></td> 
+  <td  class="colorabf00ffn center fontbold  fontstyle">
+  <abbr  title='Notice: Year /month /day'><h5>{$row.pay}</h5></abbr></td> 
+  <td  class="colorabf00ff center fontbold  fontstyle"><h5>{$row.pay6}</h5></td>
+  <td  class="colorblack center fontbold  fontstyle">
+  <abbr  title="Edit detail"> <a href="javascript:void(0);" class="colorblack" onclick="edit_user('{$row.id}')">
   <i class="glyphicon glyphicon-pencil"></i></a></abbr>&nbsp;&nbsp;&nbsp;&nbsp;
   <abbr  title='Notice: as soon click your choose will become delete'>
-  <a href="javascript:void(0);" style="color:black" onclick="delete_user('{$row.id}')">
+  <a href="javascript:void(0);" class="colorblack" onclick="delete_user('{$row.id}')">
    <i class="glyphicon glyphicon-trash"></i></a> </abbr>
     </td>
     </tr>
@@ -86,15 +87,15 @@
     <div class="row">
     <div class="col-sm-6">
     <div class="form-group">
-    <label style='font-family: "Times New Roman", Times, serif'><p class='p' style='color:black; border-radius: 4px;; background-color:lightgrey;'>Bank Name:</p></label>&nbsp;&nbsp;&nbsp;<span class="name error"></span>  
-    <input type="text" class="form-control" id="name" name="name" placeholder="Bank Name" style='background-color: lightgrey;border:2px solid grey;color:blue;font-family:italic;'>
+    <label class='font'><p class='p colorblack borderradiu backlightgrey' >Bank Name:</p></label>&nbsp;&nbsp;&nbsp;<span class="name error"></span>  
+    <input class="color994d00 bord form-control fontstyle" id='name' type="text"  name="name" placeholder="Bank Name" >
     </div>
 </div>
 
 <div class="col-sm-6">
     <div class="form-group">
-    <label style='font-family: "Times New Roman", Times, serif'><p class='p' style='color:black;border-radius: 4px;; background-color:lightgrey;'>Person Name:</p></label>&nbsp;&nbsp;&nbsp;<span class="l_name_error error"></span>
-    <input type="text" class="form-control" id="person" name="person" placeholder="person" style='background-color: lightgrey;border:2px solid grey;color:orange;font-family:italic;'>
+    <label class='font'><p class='p colorblack borderradiu backlightgrey'>Person Name:</p></label>&nbsp;&nbsp;&nbsp;<span class="l_name_error error"></span>
+    <input type="text" class="form-control fontstyle colorGreen bord" id="person" name="person" placeholder="Person">
     </div>
  </div>
 </div>
@@ -103,15 +104,15 @@
     <div class="col-sm-6">
 	
  <div class="form-group">
-   <label style='font-family: "Times New Roman", Times, serif'><p class='p' style='color:black; border-radius: 4px;; background-color:lightgrey;'> Check Number:</p></label>&nbsp;&nbsp;&nbsp;<span class="number error"></span>
-   <input type="number" class="form-control" id="number" name="number" placeholder="number" style='background-color: lightgrey;border:2px solid grey;color:red;font-family:italic;'>
+   <label class='font'><p class='p colorblack borderradiu backlightgrey' > Check Number:</p></label>&nbsp;&nbsp;&nbsp;<span class="number error"></span>
+   <input type="number" class="form-control fontstyle colorGreen bord" id="number" name="number" placeholder="number">
    </div>
   </div> 
   
   <div class="col-sm-6">
 	<div class="form-group">
-    <label style='font-family: "Times New Roman", Times, serif'><p class='p' style='color:black; border-radius: 4px;; background-color:lightgrey;'>Mony Amount:</p></label>&nbsp;&nbsp;&nbsp;<span class="Amount error"></span>
-    <input type="number" class="form-control" id="Amount" name="Amount" placeholder="amount" style='background-color: lightgrey;border:2px solid grey;color:#a65959;font-family:italic;'>
+    <label class='font'><p class='p colorblack borderradiu backlightgrey' >Mony Amount:</p></label>&nbsp;&nbsp;&nbsp;<span class="Amount error"></span>
+    <input type="number" class="form-control fontstyle colorGreen bord" id="Amount" name="Amount" placeholder="amount" >
     </div>
   </div>
 </div>   
@@ -119,8 +120,8 @@
   <div class="row">
      <div class="col-sm-11">
 	<div class="form-group">
-    <label style='font-family: "Times New Roman", Times, serif'><p class='p' style='color:black; border-radius: 4px;; background-color:lightgrey;'> Comment:</p></label>&nbsp;&nbsp;&nbsp;<span class="Comment error"></span>
-    <textarea type="text" class="form-control" id="Comment" name="Comment" placeholder="Comment..." style='background-color: lightgrey;border:2px solid grey;color:black;font-family:italic;'></textarea> 
+    <label class='font'><p class='p colorblack borderradiu backlightgrey' > Comment:</p></label>&nbsp;&nbsp;&nbsp;<span class="Comment error"></span>
+    <textarea type="text" class="form-control fontstyle colorGreen bord " id="Comment" name="Comment" placeholder="Comment..." ></textarea> 
     </div>
   </div>
 </div>
@@ -128,13 +129,13 @@
 <div class="row">
     <div class="col-sm-6">
 <div class="form-group">
-    <label style='font-family: "Times New Roman", Times, serif'><p class='p' style='color:black;border-radius: 4px;; background-color:lightgrey;'> Pay date:</p></label>&nbsp;&nbsp;&nbsp;<span class="pay error"></span>
+    <label class='font'><p class='p colorblack borderradiu backlightgrey'> Pay date:</p></label>&nbsp;&nbsp;&nbsp;<span class="pay error"></span>
 	
     <div class="row">
 	<div class="col-sm-12">
 	 
 	 <abbr  title="Notice: month/day/Year">
-	 <input type="date" onkeypress="return isNumeric(event)" class="form-control" id="pay" name="pay" class="pay" value="2014-02-09" style='background-color: WHITE;border:2px solid grey;color:#8000ff;font-family:italic;'>
+	 <input type="date" onkeypress="return isNumeric(event)" class="form-control pay colorblack borderradiu backlightgrey" id="pay" name="pay"  value="2014-02-09" >
     </abbr>
 	</div>	
    </div>
@@ -143,10 +144,10 @@
 
 <div class="col-sm-6">
 		<div class="form-group">
-    <label style='font-family: "Times New Roman", Times, serif'><p class='p' style='color:black; border-radius: 4px;; background-color:lightgrey;'>Alarm Pay date:</p></label>
+    <label class='font'><p class='p colorblack borderradiu backlightgrey'>Alarm Pay date:</p></label>
 	
 <abbr  title="enter alarm date">
-	<input type="date" onkeypress="return isNumeric(event)" class="form-control" id="pay6" name="pay6" class="pay6" value="2014-02-09" style='background-color: WHITE;border:2px solid grey;color:#bf00ff;font-family:italic;'>
+	<input type="date" onkeypress="return isNumeric(event)" class="form-control  colororange borderradiu backlightgrey" id="pay6" name="pay6" class="pay6" value="2014-02-09" >
 	
     </abbr>
 	</div>
@@ -157,7 +158,7 @@
  <div class="col-sm-6">
 					
  <div class="form-group">
- <label for="" class='p' style='font-family: "Times New Roman", Times, serif;color:black; border-radius: 4px;; background-color:lightgrey;'>Check Kind:&nbsp;&nbsp;</label><br>
+ <label for="" class='p font colorblack borderradiu backlightgrey'>Check Kind:&nbsp;&nbsp;</label><br>
  <input type="radio" name="gender" class="gender cell" value="Check out "> Check out 
  <input type="radio" name="gender" class="gender cell" value="Check in"> Check in
  </div>
@@ -165,7 +166,7 @@
 
 <div class="col-sm-6">
 <div class="form-group">
-<label for="" class='p' style='font-family: "Times New Roman", Times, serif;color:black;border-radius: 4px;; background-color:lightgrey;'>Spend:&nbsp;&nbsp;</label><br>
+<label for="" class='p font colorblack borderradiu backlightgrey'>Spend:&nbsp;&nbsp;</label><br>
 <input type="radio" name="gender1" class="gender1 cell" value="Check pass  "> Check pass  
 <input type="radio"  name="gender1" class="gender1 cell" value="Check nopass"> Check nopass
    </div>
@@ -174,8 +175,8 @@
  
   <input type="hidden" id="action" name="action" value="add">
   <input type="hidden" id="id" name="id" value="">
-  &nbsp;&nbsp;&nbsp;&nbsp;<button type="button" id="submit" class="btn btn-primary" style=' background-color: orange;position:relative;bottom:10px'>Submit</button>
-  &nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-default" data-dismiss="modal" style=' background-color: grey;position:relative;bottom:10px'>Close</button>
+  &nbsp;&nbsp;&nbsp;&nbsp;<button type="button" id="submit" class="btn btn-primary backorange">Submit</button>
+  &nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-default backgray" data-dismiss="modal">Close</button>  
    </form>               
    </div>
           
