@@ -80,7 +80,7 @@
     			<div class="alert alert-success">
 				<i class="icon-credit-card icon-large"></i>
 				&nbsp;Total Price($):&nbsp;
-				<span class='color990000'>
+				<span class='color9900000'>
 				 <b><i>{$sum}</b></i>
 				  </span>
 				</div>
