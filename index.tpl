@@ -1,10 +1,26 @@
-{extends file="layout.tpl"}
+<html>
 
-{block name="content"}
+<head>
+    <title>{block name="title"}Money Loverh{/block}</title>
+	<meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+    {include file="assets/asset link-script/asset.php"}
 <span id='p'>{include file="assets/sidebar/sidebar.php"}</span> 
 
+<script>
+$(document).ready(function(){
+    
+        $("#p").hide();
+});
+</script>
+
+</head>
+
+
+	
+<body class='bgimg'>
    <div class="w3-display-middle w3-center c">
-        <span class="w3-text-white w3-jumbo w3-animate-top" style="font-size:90px;font-family:weight;font-family: 'Times New Roman', Times, serif;"><b>MONEY<br>LOVER</b></span>
+        <span class="w3-text-white w3-jumbo w3-animate-top font fontweight"><b>MONEY<br>LOVER</b></span>
     </div>
 	
  {if $show_table}
@@ -14,31 +30,28 @@
 
 
                 <tr>
-                    <td colspan="2" align="left" valign="top"><h2 style='color:red'><b><i>&nbsp;&nbsp;money lover</i></b>
+                    <td colspan="2" align="left" valign="top"><h2 class='colorred' ><b><i>&nbsp;&nbsp;money lover</i></b>
                         </h2>
-                        <h3 style='color:brown'> please enter Username & Password</h3></td>
+                        <h3 class='colorbrown' > please enter Username & Password</h3></td>
                     <br>
                 </tr>
                 <tr>
-                    <td align="right" valign="top"><span
-                                style='background-color:lightgrey;padding:2px 2px;;border-radius:2px;color:black'><b>Username:</b></span>
+                    <td align="right" valign="top">
+					<span class='backlightgrey paddd colorblack borderradiu' ><b>Username:</b></span>
                     </td>
-                    <td><input name="username" type="text" class="Input"
-                               style='background-color:yellow;font-weight:bold;color:blue;'></td>
+                    <td><input name="username" type="text" class="Input fontbold backyellow" id='colorblue'></td>
                 </tr>&nbsp;&nbsp;
                 <tr>
-                    <td align="right" style='background-color:lightgrey;padding:2px 2px;'><span
-                                style='background-color:lightgrey;padding:2px 2px;border-radius:2px;color:black'><b>Password:</b></span>
+                    <td align="right" ><span class='backlightgrey paddd colorblack borderradiu'><b>Password:</b></span>
                     </td>
-                    <td><input name="password" type="password" id="p1" class="Input"
-                               style='background-color:yellow;font-weight:bold;color:blue;'></td>
+                
+					<td><input name="password" type="password" class="Input fontbold backyellow" id='colorblue'></td>
                 </tr>
                 <tr>
                     &nbsp;&nbsp;
 
                     <td>
-                        <button name="submite" class='submite' id="btnClick" type="submit" onclick="CountFun();"
-                                style='background-color:lightgrey;padding:2px 9px;border-radius:10px;color:black'>
+                        <button name="submite" class='submite backlightgrey colorblack boxshadow' id="btnClick" type="submit" onclick="CountFun();">
                             <b>Submit</b>
                         </button>
                     </td>
@@ -49,23 +62,24 @@
     {/if}
 	                       
 	{if !$show_table}
-<script type="text/javascript">$(document).ready(function() {   $("#p").show();  }) </script>
+<script type="text/javascript">$(document).ready(function() {   $("#p").show();  })
+$(document).ready(function() {   bootbox.alert("<center><h1 class='colorred' >Wellcome</h1></center>");}) </script>
     {/if}
 
     {if $wrong_credentials}
 	<script type="text/javascript">
-	$(document).ready(function() { bootbox.alert("<h1 style='color:red;text-align:center'>!Error:</h1>....<p style='color:black'>please more care</p>");})</script>
+	$(document).ready(function() { bootbox.alert("<h1 class='colorred center' >!Error:</h1>....<p class='colorblack' >please more care</p>");})</script>
 	{/if}
 	
 	{if $honest_credentials}
 	
-       <script type="text/javascript"> $(document).ready(function() {  $("#p").show(); $("#table").hide();  bootbox.alert("wellcome");}) </script>
+       <script type="text/javascript"> $(document).ready(function() {  $("#p").show(); $("#table").hide();  bootbox.alert("<center><h1 class='colorred'>Wellcome</h1></center>");}) </script>
     {/if}
 
-<h2 style='color:white;
-    position: absolute;
-    bottom: 8px;
-    right: 16px;
-    font-size: 18px;' class="bottomright">
-	{$date}</h2>
-{/block}
+<h2 class="bottomright colorwhite dateindex" >
+	{$date}
+	</h2>
+
+	</body>  
+ 
+</html>
