@@ -1,4 +1,4 @@
-{extends file="layoutall.tpl"}
+{extends file="layout.tpl"}
 
 {block name="content"}
 
@@ -7,7 +7,7 @@
  <div class="row">
             
    <center>			
-    <h3 style='color:white;font-family: "Times New Roman", Times, serif;'>( BANK MANAGEMENT )</h3> 
+    <h3 class="font colorwhite">( BANK MANAGEMENT )</h3> 
 	 </center>  
        </div>
 	   
@@ -21,20 +21,20 @@
 				        </br>
 						
                 <table class="table table-striped table-responsive" id="usersdata">
-                    <tr>
-                  <th style='text-align:center;font-family: "Times New Roman", Times, serif;'><h3 style='color:black;'>Bank</h3></th> 
-                   <th style='text-align:center;font-family: "Times New Roman", Times, serif;'><h3 style='color:black;'>Account</h3></th>
-                    <th style='text-align:center;font-family: "Times New Roman", Times, serif;'><h3 style='color:black;'>Action</h3></th>
+                    <tr class='center backgray'>
+                  <th class='center font backa65959 '><h3 class='colorwhite'>Bank</h3></th> 
+                   <th class='center font backgreen'><h3 class='colorwhite'>Account</h3></th>
+                    <th class='center font backbf00ff'><h3 class='colorwhite'>Action</h3></th>
                      </tr>
 					  
 					  {foreach from=$rows item=row}
 					 
 					  
-                    <tr  style='  background-color: lightgrey;border:1px solid orange' class="user_{$row.id}">
-                       <td style='text-align:center;font-weight: bold;color:blue'><h3><i><b>{$row.bank}</b></i></h3></td>
-						<td style='text-align:center;font-weight: bold;color:red'><h3><i><b>{$row.Account}</b></i></h3></td>
+                    <tr class='backlightgrey bordorange' class="user_{$row.id}">
+                       <td class='center fontbold colorblue'><h3><i><b>{$row.bank}</b></i></h3></td>
+						<td class='center fontbold colorred'><h3><i><b>{$row.Account}</b></i></h3></td>
                       
-                        <td style='text-align:center;font-family: ;color:dark grey'><h3>
+                        <td class='center colorgrey'><h3>
                          &nbsp;&nbsp;&nbsp;&nbsp;
                             <a href="javascript:void(0);" onclick="delete_user({$row.id})"><i class="glyphicon glyphicon-trash"></i></a></h3>
                         </td>
@@ -57,27 +57,27 @@
                 <form method="POST" role="form">
  
                     <div class="form-group"> 
-                        <label style='font-family: "Times New Roman", Times, serif'><p  style='color:black; padding: 2px 8px;border-radius: 4px;; background-color:lightgrey;'>Bank:</p></label>&nbsp;&nbsp;&nbsp;<span class="bank error"></span>
-                        <input type="text" class="form-control" id="bank" name="bank" placeholder="bank" style='background-color: lightgrey;border:2px solid grey;color:blue;font-family:italic;'>
+                        <label class='font'><p  class='colorblack borderradiu backlightgrey padddd'>Bank:</p></label>&nbsp;&nbsp;&nbsp;<span class="bank error"></span>
+                        <input type="text" class="form-control backlightgrey colordate fontstyle bor" id="bank" name="bank" placeholder="bank">
                          </div>
  
                 <div class="form-group">
-                       <label style='font-family: "Times New Roman", Times, serif'><p  style='color:black; padding: 2px 8px;border-radius: 4px;; background-color:lightgrey;'> Account:</p></label>&nbsp;&nbsp;&nbsp;<span class="Account error"></span>
-                        <input type="text" class="form-control" id="Account" name="Account" placeholder="Account" style='background-color: lightgrey;border:2px solid grey;color:blue;font-family:italic;'>
+                       <label class='font'><p  class='colorblack borderradiu backlightgrey padddd'> Account:</p></label>&nbsp;&nbsp;&nbsp;<span class="Account error"></span>
+                        <input type="text" class="form-control backlightgrey colordate fontstyle bor" id="Account" name="Account" placeholder="Account" >
                          </div>
 					
 					  <div class="form-group">
-                       <label style='font-family: "Times New Roman", Times, serif'><p  style='color:black; padding: 2px 8px;border-radius: 4px;; background-color:lightgrey;'>Cost:</p></label>&nbsp;&nbsp;&nbsp;<span class="cost error"></span>
-					    <input type="number" class="form-control"  min="1" id="cost" name="cost" placeholder="cost" style='background-color: lightgrey;border:2px solid grey;color:blue;font-family:italic;'>
+                       <label class='font'><p class='colorblack borderradiu backlightgrey padddd'>Cost:</p></label>&nbsp;&nbsp;&nbsp;<span class="cost error"></span>
+					    <input type="number"  min="1" id="cost" name="cost" placeholder="cost" class="form-control backlightgrey colordate fontstyle bor">
 						
                                                 
 				         </div>
 				   
 				   <div class="form-group">
-                       <label style='font-family: "Times New Roman", Times, serif'><p  style='color:black; padding: 2px 8px;border-radius: 4px;; background-color:lightgrey;'>
+                       <label  class='font'><p  class='colorblack borderradiu backlightgrey padddd'>
 					   Limit for buy(%?):</p></label>&nbsp;&nbsp;&nbsp;<span class="Limite error"></span>
                         
-					   <input type="number" class="form-control" min="1" max="99" id="Limite" name="Limite" placeholder="Limit" style='background-color: lightgrey;border:2px solid grey;color:blue;font-family:italic;'>
+					   <input type="number"  min="1" max="99" id="Limite" name="Limite" placeholder="Limit" class="form-control backlightgrey colordate fontstyle bor">
                      
 				          </div>
 				   
@@ -95,7 +95,7 @@
     </div>
 </div>
   
-  <script type="text/javascript" src="http://www.phpzag.com/demo/delete-records-with-bootstrap-confirm-modal-using-php-mysql/script/bootbox.min.js"></script>
+  <script type="text/javascript" src="http://www.phpzag.com/demo/delete-records-with-bootstrap-confirm-modal-using-php-mysql/script/bootbox.min.js"></script>  
   
    <!-- Script for add new data -->
   <script type="text/javascript" src="assets/js/account.js"></script>
