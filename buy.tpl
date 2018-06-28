@@ -1,13 +1,13 @@
-{extends file="layoutall.tpl"}
+{extends file="layout.tpl"}
 
 {block name="content"}
 
-<!-- start body content -->
+<!-- start body content --> 
 <div class="container">
  <div class="row">
             
    <center>			
-    <h3 style='color:white;font-family: "Times New Roman", Times, serif;'>( COST MANAGEMENT )</h3> 
+    <h3 class="font colorwhite">( COST MANAGEMENT )</h3> 
 	 </center>  
        </div>
 	   
@@ -17,12 +17,12 @@
                     <button class="btn btn-primary" class="add_new_user" id="add_new_user"><i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;Add New</button>
                 </div>
 				    </br></br>
-                 <table class="table table-striped table-responsive" id="usersdata" style='width: 70%;border-radius: 15px 50px 30px 5px;'>
-                    <tr style="background-color: lightgrey;">
-                        <th style="font-family: 'Times New Roman', Times, serif;border-radius: 0 50px 30px 5px;">Product Name</th>
-						<th style="font-family: 'Times New Roman', Times, serif;border-radius: 15px 50px 30px 5px;">Amount</th>
-						<th style="font-family: 'Times New Roman', Times, serif;;text-align:center;border-radius: 15px 50px 30px 5px;">Expenditure kind</th>
-						<th style="font-family: 'Times New Roman', Times, serif;;text-align:center;border-radius: 15px 50px 30px 5px;">Price</th>
+                 <table class="table table-striped table-responsive tablee" id="usersdata">
+                    <tr id='backlightgrey'>
+                        <th class="font center bor" >Product Name</th>
+						<th class="font center bor">Amount</th>
+						<th class="font center bor">Expenditure kind</th>
+						<th class="font center bor">Price</th>
                         
                         <th>Action</th>
                     </tr>
@@ -42,13 +42,13 @@
  
  			 <table class="table"> 
 
-        <tr style='  background-color: lightgrey;'>  
-		<th style='text-align:center;font-family: "Times New Roman", Times, serif;'> <h3 style='color:red;font-family: "Times New Roman", Times, serif;'>
+        <tr class='backlightgrey'>  
+		<th class='center font'> <h3 class='colorred font'>
 		<label>Bank Name</label>
 		</h3>
 		 </th> 
-		<th style='text-align:center;'>
-		<h3 style='color:black;font-family: "Times New Roman", Times, serif;'><label>Account Name</label>
+		<th class='center'>
+		<h3 class='colorblack font'><label>Account Name</label>
 		</h3>
 		 </th> 
 		  </tr>
@@ -56,13 +56,13 @@
 		<div class="form-group">
 		<tr>
               {foreach from=$rows item=row}
-         <td style='text-align:center;'>
+         <td class='center'>
 		 <p class='h5'><i><span>{$row.bank}</span>
 		 <input type="radio" name="bank" class="bank cell" id="bank" value='{$row.bank}' required ></i>					
            </p>
 		    </td>
 			
-         <td style='text-align:center;'>
+         <td class='center'>
 		 <p class='h5'><i><span>{$row.Account}</span>
 		 <input type="radio" name="Account" class="Account cell" id="Account" value='{$row.Account}' required ></i>
 		   </p>
@@ -73,17 +73,17 @@
 		</table >
                    
 		<div class="form-group">
-        <label style='font-family: "Times New Roman", Times, serif'>
-		<p  style='color:black; padding: 2px 8px;border-radius: 4px;; background-color:lightgrey;' >Product Name:</p>
+        <label class='font'>
+		<p  class='colorblack padddd borderradiu backlightgrey' >Product Name:</p>
 		 </label>&nbsp;&nbsp;&nbsp;
 		  <span class="name error"></span> 
                         
-		<input type="text" class="form-control" id="name" name="name" placeholder="enter name of product" style='background-color: lightgrey;border:2px solid grey;color:blue;font-family:italic;' required>
+		<input type="text" class="form-control fontstyle colordate backlightgrey borderradiu" id="name" name="name" placeholder="enter name of product"  required>
           </div>
  
          <div class="form-group">
-         <label style='font-family: "Times New Roman", Times, serif;'><p style='color:black; padding: 2px 8px;border-radius: 4px;; background-color:lightgrey;'>Explain to buy:</p></label>&nbsp;&nbsp;&nbsp;<span class="buy error"></span>
-         <textarea type="text" class="form-control" id="buy" name="buy" placeholder="buy" style='background-color: lightgrey;border:2px solid grey;color:blue;font-family:italic;'>
+         <label class='font'><p class='colorblack padddd borderradiu backlightgrey'>Explain to buy:</p></label>&nbsp;&nbsp;&nbsp;<span class="buy error"></span>
+         <textarea type="text" class="form-control fontstyle colorGreen bord" id="buy" name="buy" placeholder="buy" >
 	      </textarea>
            </div>
  
@@ -91,7 +91,7 @@
          <div class="col-md-6">
 		 
             <div class="form-group">
-            <label for="" style='font-family: "Times New Roman", Times, serif;color:black; padding: 2px 8px;border-radius: 4px;; background-color:lightgrey;'>Expenditure kind:&nbsp;&nbsp;</label>&nbsp;&nbsp;&nbsp;<span class="qty error"></span><BR>
+            <label for="" class='font colorblack borderradiu padddd backlightgrey'>Expenditure kind:&nbsp;&nbsp;</label>&nbsp;&nbsp;&nbsp;<span class="qty error"></span><BR>
 			<p class='h5'><i><input type="radio" name="gender" class="gender cell" value="cash" id="realize"> cash</p></i>
             <p class='h5'><i><input type="radio" name="gender" class="gender cell" value="bank" id="bank1"> bank</p></i>
               </div>
@@ -105,15 +105,16 @@
 			<div class="col-md-4">		
 			 <div class="form-group">
 			 
-             <label style='font-family: "Times New Roman", Times, serif;color:black; padding: 2px 8px;border-radius: 4px;; background-color:lightgrey;'>Price:</label>&nbsp;&nbsp;&nbsp;<span class="Price error" ></span>
-            <input type="number" class="form-control" id="Price" name="Price" placeholder="Price" style='background-color: lightgrey;border:2px solid grey;color:blue;font-family:italic;' required><br>
+             <label class='font colorblack padddd borderradiu backlightgrey'>Price:</label>&nbsp;&nbsp;&nbsp;<span class="Price error" ></span>
+            <input type="number" class="form-control" id="Price" name="Price" placeholder="Price" 
+			class='backlightgrey colorblue bor fontstyle' required><br>
 			  </div>
 			   </div>
 				</div>
                  </form>               
                   </div>                        
             <!-- <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
                 <button type="button" class="btn btn-primary">Save changes</button>
             </div> -->
         </div>
