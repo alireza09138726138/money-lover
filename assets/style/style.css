@@ -1,6 +1,6 @@
 
  
- body{   
+  body{   
  background-color: #808080;
  }
  
@@ -278,11 +278,9 @@ border-radius: 0 50px 30px 5px;
 	color:brown;
 }
 
-.color990000{
-	color:#990000;  
-}
 
-.color9900000{
+
+.color9{
 	color:#990000;  
 }
 
@@ -395,7 +393,7 @@ color:rgb(0, 0, 0);
 }
 
 .color990000{
-	background-color: #990000;
+	background-color: #990000;  
 }
 
 .backyellow{
