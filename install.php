@@ -80,6 +80,7 @@ if ($conn->query($sql) === TRUE) {
     echo "Error creating table: " . $conn->error;
 }
 echo '<br>';
+
 // sql to create table
 $sql = "CREATE TABLE user (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -112,5 +113,24 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Error creating table: " . $conn->error;
 }
+
+
+echo '<br>';
+
+
+// sql to create table
+$sql = "CREATE TABLE login (
+id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+usrnm VARCHAR(50) NOT NULL,
+email VARCHAR(50) NOT NULL,
+psw VARCHAR(30) NOT NULL
+)";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Table MyGuests login created successfully";
+} else {
+    echo "Error creating table: " . $conn->error;
+}
+
 $conn->close();
 ?> 
