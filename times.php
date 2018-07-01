@@ -4,11 +4,12 @@ include 'configg.php';
 
 $date = date("d-m-Y ");
 
+$wrong_credentials = false;
 $honest_credentials = false;
 $sum = null;
 $rows =null;
 
-
+ 
 
 if (isset($_POST['submite'])) {
     $startDate= mysqli_real_escape_string($conn,$_POST['startDate']);
@@ -20,6 +21,7 @@ if (isset($_POST['submite'])) {
     $row = mysqli_fetch_array($resultt);
     $sum = $row['sum(Price)'];
     $honest_credentials = mysqli_num_rows($result) > 0;
+	$wrong_credentials = mysqli_num_rows($result) <= 0;
 }
 
 
@@ -27,10 +29,11 @@ if (isset($_POST['submite'])) {
 
 $smarty = new smarty();
 $smarty->assign('date', $date);
-
+$smarty->assign('wrong_credentials', $wrong_credentials);
 $smarty->assign('honest_credentials', $honest_credentials);
 
 $smarty->assign('rows', $rows);
 $smarty->assign('sum', $sum);
 $smarty->display("times.tpl");
 ?>
+
