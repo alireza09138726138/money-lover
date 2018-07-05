@@ -23,7 +23,7 @@ $(document).ready(function(){
         <span class="w3-text-white w3-jumbo w3-animate-top font fontweight"><b>MONEY<br>LOVER</b></span>
     </div>
 	
- {if $show_table}
+ 
 	
         <div class="well" id='table'>
             <form action="" method="post" name="Login_Form" onsubmit="return validateForm(this);">
@@ -58,22 +58,21 @@ $(document).ready(function(){
                 </tr>
 
             </form>
+			<p>Don't have an account? <a href="register.php" style='color:red'>Register</a></p>
+			<p>Do you want reset password? <a href="change.php" style='color:red'>reset</a></p>
         </div>
-    {/if}
 	                       
-	{if !$show_table}
-<script type="text/javascript">$(document).ready(function() {   $("#p").show();  })
-$(document).ready(function() {   bootbox.alert("<center><h1 class='colorred' >Wellcome</h1></center>");}) </script>
-    {/if}
+	
 
     {if $wrong_credentials}
 	<script type="text/javascript">
-	$(document).ready(function() { bootbox.alert("<h1 class='colorred center' >!Error:</h1>....<p class='colorblack' >please more care</p>");})</script>
+	$(document).ready(function() { bootbox.alert("<h1 class='colorred center' >!Error:</h1>....<p class='colorblack' >please more care</p>");});</script>
 	{/if}
 	
 	{if $honest_credentials}
-	
-       <script type="text/javascript"> $(document).ready(function() {  $("#p").show(); $("#table").hide();  bootbox.alert("<center><h1 class='colorred'>Wellcome</h1></center>");}) </script>
+       <script type="text/javascript"> 
+	   $(document).ready(function() {  $("#p").show(); $("#table").hide();
+bootbox.alert("<h3 class='colorred'>Wellcome <h3><h1 style='color:green'>{foreach from=$rows item=row}&nbsp;&nbsp;</i><b>{$row.username}{/foreach}</b></i></h1>");}); </script>
     {/if}
 
 <h2 class="bottomright colorwhite dateindex" >
@@ -83,3 +82,4 @@ $(document).ready(function() {   bootbox.alert("<center><h1 class='colorred' >We
 	</body>  
  
 </html>
+
