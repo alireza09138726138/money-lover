@@ -15,17 +15,22 @@ $wrong_credentials = false;
 
 
 	if (isset($_POST['submite'])) {
-    $username = mysqli_real_escape_string($conn, $_POST['username']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
+    $username = mysqli_real_escape_string($conn, $_POST['username']);      
+
+    $password =  md5($_POST['password']); 
     $result = mysqli_query($conn, "select * from user where username='" . $username . "' and password='" . $password . "'") or die(mysqli_error ($result));
+	$rows = mysqli_fetch_all ($result, MYSQLI_ASSOC);
+	
     $wrong_credentials = mysqli_num_rows($result) <= 0;
-	$honest_credentials = mysqli_num_rows($result) > 0;
+	$honest_credentials =mysqli_num_rows($result) > 0; 
 }
 
 $smarty = new smarty();
 $smarty->assign('date', $date);
 $smarty->assign('show_table', $show_table);
+$smarty->assign('rows', $rows);
 $smarty->assign('wrong_credentials', $wrong_credentials);
 $smarty->assign('honest_credentials', $honest_credentials);
 $smarty->display("index.tpl");
 ?>
+
