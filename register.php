@@ -1,44 +1,30 @@
-<?php
 
-include("libs/smarty/Smarty.class.php");
+ 
+  <?php 
+ // فراخوانی منوی بالا
+ // فراخوانی فایل دیتابیس
 include 'configg.php';
+ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email'])){ 
+ 
 
-$date = date("d-m-Y ");
-$resultt =null;
-$honest_credentials = false;
-$wrong_credentials = false;
-$valid = true;
-
-if(isset($_POST['submit']))
-	{
-	$usrnm = mysqli_real_escape_string($conn, $_POST['usrnm']);
-	$email = mysqli_real_escape_string($conn, $_POST['email']);
-    $psw = mysqli_real_escape_string($conn, $_POST['psw']);
-	
-	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $valid = false;
-        
-        $email = "";
-    }else{
-    $result = mysqli_query($conn, "select * from login where usrnm='" . $usrnm . "' and email='" . $email . "' and psw='" . $psw . "'") or die(mysqli_error ($result));
-    $wrong_credentials = mysqli_num_rows($result) > 0;
-	
-	if(!$wrong_credentials>0){
-	
-	$resultt=mysqli_query($conn,"insert into login(usrnm,email,psw)values('$_POST[usrnm]','$_POST[email]','$_POST[psw]')");
-	 }
-	}
-  }
-
-$smarty = new smarty();
-$smarty->assign('date', $date);
-$smarty->assign('valid', $valid);
-$smarty->assign('honest_credentials', $honest_credentials);
-$smarty->assign('wrong_credentials', $wrong_credentials);
-$smarty->assign('resultt', $resultt);
-$smarty->display("register.tpl");
-?>
-
-
-
-
+     $username = mysqli_real_escape_string($conn, $_POST['username']); 
+     $email = mysqli_real_escape_string($conn, $_POST['email']); 
+     $password = md5($_POST['password']); 
+     $sql = mysqli_query($conn, "SELECT * FROM user WHERE username = '".$username."'");
+     if(mysqli_num_rows($sql)>0){ 
+         die("Username taken."); 
+     }else{ 
+     mysqli_query($conn, "INSERT INTO user(username, password, email) VALUES('$username', '$password', '$email')") or die (mysqli_error($conn)); 
+	 echo "Account created."; 
+ }
+ } 
+ ?>
+ 
+  <html>
+   <form action="register.php" method="post">
+      Username: <input name="username" type="text" />
+      Password: <input type="password" name="password" />
+      Email: <input name="email" type="text" />
+      <input type="submit" value="Submit" />
+   </form>
+ </html>
