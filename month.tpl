@@ -43,6 +43,7 @@
 
 {if $wrong_credentials}
  <div class="container">
+	  <h3  id='' class='colorwhite'><i><b>ERROR:&nbsp;&nbsp;</b></i>if the number of month is less then 10 enter 0 before each digit(01,02....,09)  </h3>
 	  <h3  id='plsme' class='colorwhite'><i>ERROR</i> because your DATE n't exist</h3>
 	  </div>
 	{/if}
@@ -93,3 +94,4 @@
 	 </table>
 		
 		 {/block}
+
