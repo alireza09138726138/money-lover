@@ -6,7 +6,6 @@
     <div class="w3-bar-block w3-center">
     <a href="home.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><i class="fa fa-home navv">&nbsp;&nbsp;</i><h3>Home</h3></a>
 	<a href="explain.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Explain</h3></a>
-    <a href="Username.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><i class="fa fa-key navv" >&nbsp;&nbsp;</i><h3>Creat password</h3></a>
 	<a href="account.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Creat new account</h3></a>
     <a href="buy.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><h3>Cost management(buy)</h3></a>
     <a href="year.php" class="w3-bar-item w3-button w3-text-grey w3-hover-black"><i class="fa fa-calendar-check-o navv" >&nbsp;&nbsp;</i><h3>Expenditure of year </h3></a>
