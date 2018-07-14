@@ -1,4 +1,4 @@
-$("#add_new_user").click(function(){    
+  $("#add_new_user").click(function(){    
     $("#action").val("add");
 	$("#bank").val("");
 	$("#Account").val("");
@@ -49,7 +49,7 @@ $("#submit").click(function(){
                         html += "<tr style='  background-color: lightgrey;' class=user_"+response['id']+">";
                         html += "<td style='text-align:center;font-weight: bold;color:blue'><h3><i><b>"+response['bank']+"</b></i></h3></td>";
 						html += "<td style='text-align:center;font-weight: bold;color:red'><h3><i><b>"+response['Account']+"</b></i></h3></td>";
-                        html += " <td style='text-align:center;font-family: ;color:dark grey'><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='javascript:void(0);' onclick='delete_user("+response['id']+");'><i class='glyphicon glyphicon-trash'></i></a></h3></td>";
+html += " <td style='text-align:center;font-family: ;color:dark grey'><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='javascript:void(0);' onclick='delete_user("+response['id']+");'<i class='glyphicon glyphicon-trash'></i></a></h3></td>";
                         html += "<tr>";
                         $("#usersdata").append(html);
                     }
@@ -67,7 +67,12 @@ $("#submit").click(function(){
     }
 });
  
-
+$(document).ready(function () {    // open & close of table to input(numbers)
+    $(".btn1").click(function () {
+        $("#delete").hide();
+    
+    });
+});
  
 function delete_user(id) {
     var form_data = {
@@ -77,8 +82,8 @@ function delete_user(id) {
         url : "deleteaccoun.php",
         method : "POST",
         data : form_data,
-        success : function(response) {
-            $(".user_"+id).css("background","red");
+        success : function(response) {  
+            $(".user_"+id).css("background","red");  
             $(".user_"+id).fadeOut(1000);
         }
     });
