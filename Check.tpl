@@ -26,7 +26,10 @@
                 </br></br>
 				
 				<!-- show table in php -->
+
    <table class="table table-striped table-responsive" id="usersdata">
+   				
+    
     <tr>
 <th  class='th center font backblue borderradius'>
  <h5 class='colorwhite'>Bank Name</h5></th>
@@ -50,7 +53,7 @@
    </tr>
 	   
 	   
-	   {foreach from=$rows item=row}
+	  {foreach from=$rows item=row}
 	   
 	   <tr  class="backlightgrey user_{$row.id}">  
   <td class="center fontbold colordate fontstyle"><h5>{$row.name}</h5></td> 
@@ -72,10 +75,12 @@
     </td>
     </tr>
                    {/foreach}
+				   
                 </table>
             </div>
         </div>
 	</div>
+	
 		
 		<div class="modal fade" id="add_new_user_modal">
     <div class="modal-dialog">
