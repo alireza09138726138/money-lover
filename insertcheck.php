@@ -2,6 +2,8 @@
 include 'configg.php';
 $name = $person = $gender1 = $number = $Amount = $Comment = $pay = $pay6 = $error = $action = $id = "";   
 $valid = true;
+$include =include('session.php');
+
 if(isset($_POST['name']))
 {
     $name = mysqli_real_escape_string($conn,$_POST['name']);
@@ -72,7 +74,7 @@ if($valid)
     if($action == 'add')                                                                                
     {
 $sql =
-"INSERT INTO `check1` (`id`, `name`, `person`, `number`, `Amount`, `Comment`,`gender`,`gender1`, `pay`, `pay6`) VALUES (NULL,'$name', '$person','$number', '$Amount', '$Comment','$gender', '$gender1', '$pay', '$pay6')";     
+"INSERT INTO `check1` (`id`, `name`, `person`, `number`, `Amount`, `Comment`,`gender`,`gender1`, `pay`, `pay6`, `user_id`, `username`) VALUES (NULL,'$name', '$person','$number', '$Amount', '$Comment','$gender', '$gender1', '$pay', '$pay6','$login_id','$login_session')";     
         $query = mysqli_query($conn, $sql);
         if($query)
         {
