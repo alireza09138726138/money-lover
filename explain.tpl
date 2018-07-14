@@ -5,7 +5,9 @@
 <div class="container">
         <div class="row">
             
-                <center>			<h3 style='color:white;font-family: "Times New Roman", Times, serif;'>( EXPLAIN ) </h3> </center>  
+                <center>			
+				<h3 style='color:white;font-family: "Times New Roman", Times, serif;'>( EXPLAIN ) </h3> 
+				</center>  
            
         </div>
 
