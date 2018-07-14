@@ -3,6 +3,8 @@ include 'configg.php';
 $name = $bank = $Account = $buy = $Price = $Limit = $Limite = $error = $action = $id = ""; 
    
 $valid = true;
+$include =include('session.php');
+
 if(isset($_POST['name']) && !empty($_POST['name']))
 {
     $name = mysqli_real_escape_string($conn,$_POST['name']);
@@ -18,7 +20,7 @@ else
 {
     $bank = $_POST['bank']; 
 	$Account = mysqli_real_escape_string($conn,$_POST['Account']);
-	$sql3 = "SELECT * FROM produ WHERE Account='".$Account."' AND bank='".$bank."'";
+	$sql3 = "SELECT * FROM produ WHERE Account='".$Account."' AND bank='".$bank."' AND user_id='".$login_id."'";
 					$query3 =  mysqli_query($conn, $sql3);
 				
                     $rows3 = mysqli_num_rows($query3);
@@ -69,7 +71,7 @@ if(isset($_POST['Price']) && !empty($_POST['Price']))
 {
 	
 	$Price =mysqli_real_escape_string($conn,$_POST['Price']);
- $sql1 = "select cost FROM produ WHERE Account='".$Account."' AND bank='".$bank."' ORDER BY id DESC LIMIT 0,1";
+ $sql1 = "select cost FROM produ WHERE Account='".$Account."' AND bank='".$bank."' AND user_id='".$login_id."' ORDER BY id DESC LIMIT 0,1";
   
 					$query1 =  mysqli_query($conn, $sql1);
 				$row = mysqli_fetch_array($query1);
@@ -78,7 +80,7 @@ if(isset($_POST['Price']) && !empty($_POST['Price']))
 					if($rows1>0)
                     {
 $query2 =  mysqli_query($conn, 
-"SELECT sum(Price) FROM produ WHERE bank='".$bank."' AND Account='".$Account."' AND !Price='' AND id > id =(SELECT MAX(id) FROM produ WHERE bank='".$bank."' AND Account='".$Account."' AND Price='' ORDER BY id DESC LIMIT 0,1); "); 
+"SELECT sum(Price) FROM produ WHERE bank='".$bank."' AND Account='".$Account."' AND !Price='' AND id > id =(SELECT MAX(id) FROM produ WHERE bank='".$bank."' AND Account='".$Account."' AND Price=''  AND user_id='".$login_id."' ORDER BY id DESC LIMIT 0,1); "); 
             $data1 = mysqli_fetch_array($query2);
 			$Price1 =$data1['sum(Price)'];
 			$Price2 = $Price + $Price1;
@@ -130,10 +132,10 @@ if($valid)
    if($action == 'add')            
     {     
         
-$query = mysqli_query($conn,"INSERT INTO produ (id, name, bank,amount,Comment,Price,cost,Account,year,month,day,date) VALUES (NULL, '$name','$bank', '$buy', '$gender', '$Price', '$cost1','$Account', '$date','$date2','$date3','$date1');");
+$query = mysqli_query($conn,"INSERT INTO produ (id, name, bank,amount,Comment,Price,cost,Account,year,month,day,date,user_id,username) VALUES (NULL,'$name','$bank', '$buy', '$gender', '$Price', '$cost1','$Account', '$date','$date2','$date3','$date1','$login_id','$login_session');");
         if($query)
         {
-            $retrive_sql = "SELECT * FROM produ WHERE id = (SELECT MAX(id) FROM produ)";
+            $retrive_sql = "SELECT * FROM produ WHERE id = (SELECT MAX(id) FROM produ) AND user_id='".$login_id."'";
 		
             $retrive_query = mysqli_query($conn, $retrive_sql);
             if($retrive_query)
