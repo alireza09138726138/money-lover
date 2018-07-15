@@ -62,7 +62,7 @@ if ($conn->query($sql) === TRUE) {
 echo '<br>';
 
 // sql to create table
-$sql = "CREATE TABLE check (
+$sql = "CREATE TABLE checkk (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(30) NOT NULL,
 person VARCHAR(30) NOT NULL,
