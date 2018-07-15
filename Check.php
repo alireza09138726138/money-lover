@@ -8,13 +8,13 @@ $date1=date("Y-m-d");
 $wrong_credentials = false;
 $honest_credentials = false;
 
-$sql1 = "SELECT * FROM `check1` WHERE datealarm='$date1' AND user_id = '".$login_id."'";
+$sql1 = "SELECT * FROM `checkk` WHERE datealarm='$date1' AND user_id = '".$login_id."'";
 $resultt = mysqli_query($conn, $sql1);
 $rowss = mysqli_fetch_all($resultt, MYSQLI_ASSOC);
 $show_alarm = $rowss > 0;
 
 
-$sql = "SELECT * FROM `check1` WHERE user_id = '".$login_id."'";
+$sql = "SELECT * FROM `checkk` WHERE user_id = '".$login_id."'";
 $result = mysqli_query($conn, $sql);
 $rows = mysqli_fetch_all ($result, MYSQLI_ASSOC);
 $wrong_credentials = mysqli_num_rows($result) <= 0;
