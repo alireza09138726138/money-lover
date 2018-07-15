@@ -22,9 +22,6 @@ $rows =null;
 	$honest_credentials = mysqli_num_rows($result) > 0;
 }
 
-
-
-
 $smarty = new smarty();
 $smarty->assign('date', $date);
 $smarty->assign('sum', $sum);
