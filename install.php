@@ -1,4 +1,4 @@
-  <?php
+   <?php
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -124,4 +124,5 @@ echo '<br>';
 
 $conn->close();
 ?> 
+
 
