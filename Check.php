@@ -8,7 +8,7 @@ $date1=date("Y-m-d");
 $wrong_credentials = false;
 $honest_credentials = false;
 
-$sql1 = "SELECT * FROM `check1` WHERE pay6='$date1' AND user_id = '".$login_id."'";
+$sql1 = "SELECT * FROM `check1` WHERE datealarm='$date1' AND user_id = '".$login_id."'";
 $resultt = mysqli_query($conn, $sql1);
 $rowss = mysqli_fetch_all($resultt, MYSQLI_ASSOC);
 $show_alarm = $rowss > 0;
