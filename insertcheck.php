@@ -74,12 +74,12 @@ if($valid)
     if($action == 'add')                                                                                
     {
 $sql =
-"INSERT INTO `check` (`id`, `name`, `person`, `number`, `Amount`, `Comment`,`gender`,`gender1`, `pay`, `datealarm`, `user_id`, `username`) VALUES (NULL,'$name', '$person','$number', '$Amount', '$Comment','$gender', '$gender1', '$pay', '$pay6','$login_id','$login_session')";     
+"INSERT INTO `checkk` (`id`, `name`, `person`, `number`, `Amount`, `Comment`,`gender`,`gender1`, `pay`, `datealarm`, `user_id`, `username`) VALUES (NULL,'$name', '$person','$number', '$Amount', '$Comment','$gender', '$gender1', '$pay', '$pay6','$login_id','$login_session')";     
         $query = mysqli_query($conn, $sql);
         if($query)
         {
 			
-            $retrive_sql = "SELECT * FROM `check1` WHERE id = (SELECT MAX(id) FROM check1)";
+            $retrive_sql = "SELECT * FROM `checkk` WHERE id = (SELECT MAX(id) FROM check1)";
             $retrive_query = mysqli_query($conn, $retrive_sql);
             if($retrive_query)
             {
@@ -96,7 +96,7 @@ $sql =
  
     if($action == 'edit')     
     {
-$sql = "UPDATE `check` SET `name` = '$name', `person` = '$person', `number` = '$number',`pay` = '$pay', `Amount` = '$Amount', `Comment` = '$Comment', `gender` = '$gender', `datealarm` = '$pay6', `gender1` = '$gender1' WHERE id = '$id' ";  
+$sql = "UPDATE `checkk` SET `name` = '$name', `person` = '$person', `number` = '$number',`pay` = '$pay', `Amount` = '$Amount', `Comment` = '$Comment', `gender` = '$gender', `datealarm` = '$pay6', `gender1` = '$gender1' WHERE id = '$id' ";  
         $query = mysqli_query($conn, $sql);
         if($query)
         {
