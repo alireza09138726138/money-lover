@@ -9,8 +9,7 @@ $honest_credentials = false;
 $sum = null;
 $rows =null;
 
-
-	if (isset($_POST['submite'])) {
+if (isset($_POST['submite'])) {
     $YEAR = mysqli_real_escape_string($conn, $_POST['YEAR']);
     $result = mysqli_query($conn, "select * from produ where Price IS NOT NULL AND year='".$YEAR."' AND user_id = '".$login_id."'") or die(mysqli ($result));
 	$rows = mysqli_fetch_all ($result, MYSQLI_ASSOC);
