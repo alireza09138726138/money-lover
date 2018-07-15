@@ -15,7 +15,7 @@ include 'configg.php';
  $sql = mysqli_query($conn, "SELECT * FROM user WHERE username = '".$username."' and password = '".$password."'");
 
 if($rows =mysqli_num_rows($sql)>0){
-$_SESSION['login_user']=$username; // Initializing Session
+$_SESSION['logged_in_user']=$username; // Initializing Session
 header("location: home.php"); // Redirecting To Other Page
 } else {
 $error = "Username or Password is invalid";
