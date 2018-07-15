@@ -1,6 +1,3 @@
-
-
-
 <?php
 include 'configg.php';
 session_start();// Starting Session
