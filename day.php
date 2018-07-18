@@ -1,7 +1,7 @@
 <?php
 include("libs/smarty/Smarty.class.php");
 include 'configg.php';
-
+$include =include('session.php');
 $date = date("d-m-Y ");
 
 $wrong_credentials = false;
@@ -14,10 +14,10 @@ $rows =null;
     $YEAR= mysqli_real_escape_string($conn,$_POST['YEAR']);
 			$MONTH= mysqli_real_escape_string($conn,$_POST['MONTH']);
 			$day= mysqli_real_escape_string($conn,$_POST['day']);
-    $result = mysqli_query($conn, "select * from produ where Price IS NOT NULL AND year='".$YEAR."' AND month='".$MONTH."' and day='".$day."'") or die(mysqli ($result));
+$result = mysqli_query($conn, "select * from produ where Price IS NOT NULL AND year='".$YEAR."' AND month='".$MONTH."' and day='".$day."'AND user_id = '".$login_id."'") or die(mysqli ($result));
 	$rows = mysqli_fetch_all ($result, MYSQLI_ASSOC);
 	
-	$resultt = mysqli_query($conn,"SELECT sum(Price) FROM produ where year='".$YEAR."' AND month='".$MONTH."' and day='".$day."'") or die(mysqli_error());
+	$resultt = mysqli_query($conn,"SELECT sum(Price) FROM produ where year='".$YEAR."' AND month='".$MONTH."' and day='".$day."' AND user_id = '".$login_id."'") or die(mysqli_error());
     $row = mysqli_fetch_array($resultt);
     $sum = $row['sum(Price)'];	
     $wrong_credentials = mysqli_num_rows($result) <= 0;
@@ -29,10 +29,14 @@ $rows =null;
 
 $smarty = new smarty();
 $smarty->assign('date', $date);
+$smarty->assign('login_id', $login_id);
+$smarty->assign('login_session', $login_session);
 $smarty->assign('sum', $sum);
 $smarty->assign('rows', $rows);
 $smarty->assign('wrong_credentials', $wrong_credentials);
 $smarty->assign('honest_credentials', $honest_credentials);
 $smarty->display("day.tpl");
 ?>
+
+
 

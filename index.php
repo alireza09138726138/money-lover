@@ -1,36 +1,53 @@
+
 <?php
-include("libs/smarty/Smarty.class.php");
-include 'configg.php';
+include('login.php'); // Includes Login Script
 
-$date = date("d-m-Y ");
-
-$sql = "SELECT * FROM user WHERE username IS NOT NULL";
-$query = mysqli_query($conn, $sql);
-$rows = mysqli_num_rows($query);
-$show_table = $rows > 0;
-
-
-$honest_credentials = false;
-$wrong_credentials = false;
-
-
-	if (isset($_POST['submite'])) {
-    $username = mysqli_real_escape_string($conn, $_POST['username']);      
-
-    $password =  md5($_POST['password']); 
-    $result = mysqli_query($conn, "select * from user where username='" . $username . "' and password='" . $password . "'") or die(mysqli_error ($result));
-	$rows = mysqli_fetch_all ($result, MYSQLI_ASSOC);
-	
-    $wrong_credentials = mysqli_num_rows($result) <= 0;
-	$honest_credentials =mysqli_num_rows($result) > 0; 
+if(isset($_SESSION['logged_in_user'])){
+header("location: home.php");
 }
-
-$smarty = new smarty();
-$smarty->assign('date', $date);
-$smarty->assign('show_table', $show_table);
-$smarty->assign('rows', $rows);
-$smarty->assign('wrong_credentials', $wrong_credentials);
-$smarty->assign('honest_credentials', $honest_credentials);
-$smarty->display("index.tpl");
 ?>
 
+<!DOCTYPE html>
+<html>
+<head>
+<title>Money lover</title>
+<meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="assets/style/stylee.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="assets/style/picture/pexels-photo-221174.png.jpg"/>
+</head>
+<body id="body">
+
+
+
+<center>
+    <h3 class="colorwhite font">Money lover</h3>
+ </center>
+
+
+ <fieldset>
+
+<form action="" method="post">
+ <dl>
+			<dt>UserName :</dt>
+				<dd>
+<input id="fname" name="username" placeholder="username" type="text"></dd>
+		</dl>
+		
+		<dl>
+			<dt>Password :</dt>
+				<dd>
+<input id="fname" name="password" placeholder="password" type="password"></dd>
+		</dd>
+		</dl> 
+<input name="submit" type="submit" value=" Login " class=' Login'>
+
+  </form>
+  
+  <p>Don't have an account? <a href="register.php" style='color:red'>Register</a></p>
+  <p>Do you want reset password? <a href="change.php" style='color:red'>reset</a></p>
+ </fieldset>
+
+
+</body>
+</html>

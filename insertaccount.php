@@ -2,6 +2,9 @@
 include 'configg.php';  
 $bank = $Account = $error = $cost = $Limite = $action = $id = "";    
 $valid = true;
+
+$include =include('session.php');
+
 if(isset($_POST['bank']) && !empty($_POST['bank']))
 {
     $bank = mysqli_real_escape_string($conn,$_POST['bank']);
@@ -94,8 +97,8 @@ if($valid)
 {
     if($action == 'add')
     {
-       $query = mysqli_query($conn, "INSERT INTO `bank` (id, bank,Account,cost,Limite) VALUES (NULL, '$bank', '$Account', '$cost', '$Limite')");
-	   $query = mysqli_query($conn, "INSERT INTO `produ` (id, bank,Account,cost,Limite) VALUES (NULL, '$bank', '$Account', '$cost', '$Limite')");
+$query = mysqli_query($conn,"INSERT INTO `bank` (id, bank,Account,cost,Limite,user_id,username) VALUES (NULL, '$bank','$Account','$cost','$Limite','$login_id','$login_session')");  
+$query = mysqli_query($conn,"INSERT INTO `produ` (id, bank,Account,cost,Limite,user_id,username) VALUES (NULL,'$bank','$Account','$cost','$Limite','$login_id','$login_session')");
         if($query)
         {
             $retrive_sql = "SELECT * FROM `bank` WHERE id = (SELECT MAX(id) FROM bank)";

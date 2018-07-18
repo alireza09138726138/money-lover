@@ -1,4 +1,4 @@
-  <?php
+   <?php
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -48,6 +48,8 @@ year VARCHAR(30) NOT NULL,
 month VARCHAR(30) NOT NULL,
 day VARCHAR(30) NOT NULL,
 Account VARCHAR(30) NOT NULL,
+username VARCHAR(30) NOT NULL,
+user_id VARCHAR(30) NOT NULL,
 date VARCHAR(30) NOT NULL
 
 )";
@@ -60,7 +62,7 @@ if ($conn->query($sql) === TRUE) {
 echo '<br>';
 
 // sql to create table
-$sql = "CREATE TABLE check1 (
+$sql = "CREATE TABLE checkk (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(30) NOT NULL,
 person VARCHAR(30) NOT NULL,
@@ -69,9 +71,10 @@ Amount VARCHAR(100) NOT NULL,
 gender VARCHAR(100) NOT NULL,
 gender1 VARCHAR(100) NOT NULL,
 pay VARCHAR(30) NOT NULL,
-pay6 VARCHAR(30) NOT NULL,
+datealarm VARCHAR(30) NOT NULL,
 Comment VARCHAR(30) NOT NULL,
-pay7 VARCHAR(30) NOT NULL
+username VARCHAR(30) NOT NULL,
+user_id VARCHAR(30) NOT NULL
 )";
 
 if ($conn->query($sql) === TRUE) {
@@ -80,11 +83,11 @@ if ($conn->query($sql) === TRUE) {
     echo "Error creating table: " . $conn->error;
 }
 echo '<br>';
-
 // sql to create table
 $sql = "CREATE TABLE user (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 password VARCHAR(30) NOT NULL,
+email VARCHAR(30) NOT NULL,
 username VARCHAR(30) NOT NULL
 )";
 
@@ -105,7 +108,9 @@ id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 bank VARCHAR(50) NOT NULL,
 Account VARCHAR(50) NOT NULL,
 cost VARCHAR(30) NOT NULL,
-Limite VARCHAR(30) NOT NULL
+Limite VARCHAR(30) NOT NULL,
+username VARCHAR(30) NOT NULL,
+user_id VARCHAR(30) NOT NULL
 )";
 
 if ($conn->query($sql) === TRUE) {
@@ -114,23 +119,10 @@ if ($conn->query($sql) === TRUE) {
     echo "Error creating table: " . $conn->error;
 }
 
-
 echo '<br>';
 
 
-// sql to create table
-$sql = "CREATE TABLE login (
-id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-usrnm VARCHAR(50) NOT NULL,
-email VARCHAR(50) NOT NULL,
-psw VARCHAR(30) NOT NULL
-)";
-
-if ($conn->query($sql) === TRUE) {
-    echo "Table MyGuests login created successfully";
-} else {
-    echo "Error creating table: " . $conn->error;
-}
-
 $conn->close();
 ?> 
+
+

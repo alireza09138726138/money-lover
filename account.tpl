@@ -8,6 +8,7 @@
             
    <center>			
     <h3 class="font colorwhite">( BANK MANAGEMENT )</h3> 
+
 	 </center>  
        </div>
 	   
@@ -20,7 +21,7 @@
                        </br>
 				        </br>
 						
-                <table class="table table-striped table-responsive" id="usersdata">
+                <table class="table table-striped table-responsive" id="usersdata"  >
                     <tr class='center backgray'>
                   <th class='center font backa65959 '><h3 class='colorwhite'>Bank</h3></th> 
                    <th class='center font backgreen'><h3 class='colorwhite'>Account</h3></th>
@@ -30,13 +31,13 @@
 					  {foreach from=$rows item=row}
 					 
 					  
-                    <tr class='backlightgrey bordorange' class="user_{$row.id}">
+                    <tr class='backlightgrey bordorange user_{$row.id}' >
                        <td class='center fontbold colorblue'><h3><i><b>{$row.bank}</b></i></h3></td>
 						<td class='center fontbold colorred'><h3><i><b>{$row.Account}</b></i></h3></td>
                       
-                        <td class='center colorgrey'><h3>
+                        <td class='center colorblue'><h3>
                          &nbsp;&nbsp;&nbsp;&nbsp;
-                            <a href="javascript:void(0);" onclick="delete_user({$row.id})"><i class="glyphicon glyphicon-trash"></i></a></h3>
+                            <a href="javascript:void(0);" onclick="delete_user('{$row.id}');" ><i class="glyphicon glyphicon-trash "></i></a></h3>
                         </td>
                     </tr>
                   {/foreach}
@@ -98,10 +99,11 @@
   <script type="text/javascript" src="http://www.phpzag.com/demo/delete-records-with-bootstrap-confirm-modal-using-php-mysql/script/bootbox.min.js"></script>  
   
    <!-- Script for add new data -->
-  <script type="text/javascript" src="assets/js/account.js"></script>
+    <script type="text/javascript" src="assets/js/account.js"></script>
  
   
 
 
 
 {/block}
+

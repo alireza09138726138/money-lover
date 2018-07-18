@@ -1,7 +1,5 @@
 {extends file="layout.tpl"}
-
 {block name="content"}
-
 <!-- start body content -->
 <div class="container">
         <div class="row">
@@ -19,9 +17,6 @@
 <input class="btn2 input" type="number" value=""  name="YEAR" placeholder="Enter YEAR" id='button' onclick="showDiv('toggle')"  required>
 
 &nbsp;&nbsp;&nbsp;&nbsp;
-
-
-
 <button name="submite" type="submit" class="button button5" >Submit</button>
 
 </form>
@@ -37,22 +32,18 @@
 	  <h3 id='plsme' class='colorwhite'><i>ERROR</i> because your DATE n't exist</h3>
 	  </div>
 	{/if}
-	
-	
 <!-- table to show product -->
 	<div class="container">
-
-    		<table class="table table-striped table-responsive" id="usersdata">
+          <table class="table table-striped table-responsive" id="usersdata">
 			{if $honest_credentials}
-				
 				<tr>
 				    <th  id='th'  class='th center backDCDCDC'><h3>Bank Name</h3></th> 
                     <th  id='th'  class='th center backDCDCDC'><h3>Account</h3></th> 					 
-    				<th  id='th'  class='th center backDCDCDC'><h3>Product Name</h3></th>
-    				<th  id='th'  class='th center backDCDCDC'><h3>Price($)</h3></th>
-    				<th  id='th'  class='th center backDCDCDC'><h3>Amount</h3></th>
-					<th  id='th'  class='th center backDCDCDC'><h3>Expenditure kind</h3></th>
-					<th  id='th'  class='th center backDCDCDC'><h3>Date</h3></th>
+    		    <th  id='th'  class='th center backDCDCDC'><h3>Product Name</h3></th>
+    		    <th  id='th'  class='th center backDCDCDC'><h3>Price($)</h3></th>
+    		    <th  id='th'  class='th center backDCDCDC'><h3>Amount</h3></th>
+		    <th  id='th'  class='th center backDCDCDC'><h3>Expenditure kind</h3></th>
+		    <th  id='th'  class='th center backDCDCDC'><h3>Date</h3></th>
 				
     			</tr>
 				
@@ -83,5 +74,6 @@
 	  {/if}
 	</div>
 	 </table>
-		
-		 {/block}
+{/block}
+
+

@@ -7,7 +7,7 @@ $("#add_new_user").click(function(){
 	  $("#pay").val("");
 	  $('#Amount').val("");
 	  $("#Comment").val("");
-	  $("#pay6").val("");
+	  $("#datealarm").val("");
 	  $('#gender').val("");
 	  $('#gender1').val("");
     $("#id").val("");
@@ -21,7 +21,7 @@ $("#submit").click(function(){
 	var pay = $('#pay').val();
 	var Amount = $('#Amount').val();
 	var Comment = $('#Comment').val();
-	var pay6 = $('#pay6').val();
+	var datealarm = $('#datealarm').val();
 	var gender = $("input:radio[name='gender']:checked").val();
 	var gender1 = $("input:radio[name='gender1']:checked").val();
     var html = "";
@@ -38,7 +38,7 @@ $("#submit").click(function(){
 			number : number,
 			Amount : Amount,
 			Comment : Comment,
-			pay6 : pay6,
+			datealarm : datealarm,
 			gender : gender,
 			gender1 : gender1,
             action : action,
@@ -70,7 +70,7 @@ $("#submit").click(function(){
 						 html += "<td style='text-align:center;font-weight: bold;color:#990000'><h5>"+response['gender1']+"</h5></td>";
 						 html += "<td style='text-align:center;font-weight: bold;color:black'><h5>"+response['Comment']+"</h5></td>";
 					html += "<td style='text-align:center;font-weight: bold;color:#8000ff'><abbr  title='Notice: Year /month /day'><h5>"+response['pay']+"</abbr></h5></td>";
-					html += "<td style='text-align:center;font-weight: bold;color:#bf00ff'><h5>"+response['pay6']+"</h5></td>";
+					html += "<td style='text-align:center;font-weight: bold;color:#bf00ff'><h5>"+response['datealarm']+"</h5></td>";
                         html += "<td style='text-align:center;font-family: ;color:dark grey'><h5><abbr  title='Edit detail'><a style='color:black' href='javascript:void(0);' onclick='edit_user("+response['id']+");'><i class='glyphicon glyphicon-pencil'></i></a></abbr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<abbr  title='Notice: as soon click your choose will become delete'><a href='javascript:void(0);' style='color:black' onclick='delete_user("+response['id']+");'><i class='glyphicon glyphicon-trash'></i></a></abbr></h5></td>";
                         html += "<tr>";
                         $("#usersdata").append(html);
@@ -105,7 +105,7 @@ function edit_user(id) {
 			$('#person').val(response['person']);
 			$('#number').val(response['number']);
 			$('#pay').val(response['pay']);
-			$('#pay6').val(response['pay6']);
+			$('#datealarm').val(response['datealarm']);
 			$('#Amount').val(response['Amount']);
 			 $('#Comment').val(response['Comment']);
              $('.gender').each(function(){
@@ -141,3 +141,5 @@ function delete_user(id) {
         }
     });
 }
+
+

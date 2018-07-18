@@ -1,7 +1,9 @@
 <?php
 include 'configg.php';
-$name = $person = $gender1 = $number = $Amount = $Comment = $pay = $pay6 = $error = $action = $id = "";   
+$name = $person = $gender1 = $number = $Amount = $Comment = $pay = $datealarm = $error = $action = $id = "";   
 $valid = true;
+$include =include('session.php');
+
 if(isset($_POST['name']))
 {
     $name = mysqli_real_escape_string($conn,$_POST['name']);
@@ -29,9 +31,9 @@ if(isset($_POST['pay']) && !empty($_POST['pay']))
 }
 
 
-if(isset($_POST['pay6']) && !empty($_POST['pay6']))
+if(isset($_POST['datealarm']) && !empty($_POST['datealarm']))
 {
-    $pay6 = mysqli_real_escape_string($conn,$_POST['pay6']);
+    $datealarm = mysqli_real_escape_string($conn,$_POST['datealarm']);
 
 }
 
@@ -72,12 +74,12 @@ if($valid)
     if($action == 'add')                                                                                
     {
 $sql =
-"INSERT INTO `check1` (`id`, `name`, `person`, `number`, `Amount`, `Comment`,`gender`,`gender1`, `pay`, `pay6`) VALUES (NULL,'$name', '$person','$number', '$Amount', '$Comment','$gender', '$gender1', '$pay', '$pay6')";     
+"INSERT INTO `checkk` (`id`, `name`, `person`, `number`, `Amount`, `Comment`,`gender`,`gender1`, `pay`, `datealarm`, `user_id`, `username`) VALUES (NULL,'$name', '$person','$number', '$Amount', '$Comment','$gender', '$gender1', '$pay', '$datealarm','$login_id','$login_session')";     
         $query = mysqli_query($conn, $sql);
         if($query)
         {
 			
-            $retrive_sql = "SELECT * FROM `check1` WHERE id = (SELECT MAX(id) FROM check1)";
+            $retrive_sql = "SELECT * FROM `checkk` WHERE id = (SELECT MAX(id) FROM checkk)";
             $retrive_query = mysqli_query($conn, $retrive_sql);
             if($retrive_query)
             {
@@ -94,7 +96,7 @@ $sql =
  
     if($action == 'edit')     
     {
-$sql = "UPDATE `check1` SET `name` = '$name', `person` = '$person', `number` = '$number',`pay` = '$pay', `Amount` = '$Amount', `Comment` = '$Comment', `gender` = '$gender', `pay6` = '$pay6', `gender1` = '$gender1' WHERE id = '$id' ";  
+$sql = "UPDATE `checkk` SET `name` = '$name', `person` = '$person', `number` = '$number',`pay` = '$pay', `Amount` = '$Amount', `Comment` = '$Comment', `gender` = '$gender', `datealarm` = '$datealarm', `gender1` = '$gender1' WHERE id = '$id' ";  
         $query = mysqli_query($conn, $sql);
         if($query)
         {
@@ -117,3 +119,4 @@ else
 }
  
 ?>
+

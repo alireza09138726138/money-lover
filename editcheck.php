@@ -6,7 +6,7 @@ if(isset($_POST['id']) && !empty($_POST['id']))
     $id = $_POST['id'];
 }
  
-$sql = "SELECT * FROM `check1` WHERE id = '$id' ";
+$sql = "SELECT * FROM `checkk` WHERE id = '$id' ";
 $query = mysqli_query($conn, $sql);
  
 if($query)

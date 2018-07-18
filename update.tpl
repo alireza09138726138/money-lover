@@ -80,12 +80,13 @@
  {/if}
  
  {if $wrong_credentials}
-	<script> bootbox.alert("<h3 class='fontstyle fontweight'>Notice:&nbsp;&nbsp;<h3><h4> <span class='colorred'>ACCOUNT &nbsp;&nbsp;</span>not exist.</h4>") </script>
+	<script> bootbox.alert("<h3 class='fontstyle fontweight'>Notice:&nbsp;&nbsp;</h3><h4> <span class='colorred'>ACCOUNT &nbsp;&nbsp;</span>not exist.</h4>") </script>
   {/if}
  
  {if $resultt}
- <script> bootbox.alert("<h3 class='fontstyle fontweight'>cost Updated Successfully.&nbsp;&nbsp;<h3>");</script>
+ <script> bootbox.alert("<h3 class='fontstyle fontweight'>cost Updated Successfully.&nbsp;&nbsp;</h3>");</script>
  {/if}
   </table>
  </div>
  {/block}
+

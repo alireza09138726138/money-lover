@@ -26,7 +26,10 @@
                 </br></br>
 				
 				<!-- show table in php -->
+
    <table class="table table-striped table-responsive" id="usersdata">
+   				
+    
     <tr>
 <th  class='th center font backblue borderradius'>
  <h5 class='colorwhite'>Bank Name</h5></th>
@@ -50,7 +53,7 @@
    </tr>
 	   
 	   
-	   {foreach from=$rows item=row}
+	  {foreach from=$rows item=row}
 	   
 	   <tr  class="backlightgrey user_{$row.id}">  
   <td class="center fontbold colordate fontstyle"><h5>{$row.name}</h5></td> 
@@ -62,7 +65,7 @@
   <td  class="center fontbold colorblack fontstyle"><h5>{$row.Comment}</h5></td> 
   <td  class="colorabf00ffn center fontbold  fontstyle">
   <abbr  title='Notice: Year /month /day'><h5>{$row.pay}</h5></abbr></td> 
-  <td  class="colorabf00ff center fontbold  fontstyle"><h5>{$row.pay6}</h5></td>
+  <td  class="colorabf00ff center fontbold  fontstyle"><h5>{$row.datealarm}</h5></td>
   <td  class="colorblack center fontbold  fontstyle">
   <abbr  title="Edit detail"> <a href="javascript:void(0);" class="colorblack" onclick="edit_user('{$row.id}')">
   <i class="glyphicon glyphicon-pencil"></i></a></abbr>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -72,10 +75,12 @@
     </td>
     </tr>
                    {/foreach}
+				   
                 </table>
             </div>
         </div>
 	</div>
+	
 		
 		<div class="modal fade" id="add_new_user_modal">
     <div class="modal-dialog">
@@ -147,7 +152,8 @@
     <label class='font'><p class='p colorblack borderradiu backlightgrey'>Alarm Pay date:</p></label>
 	
 <abbr  title="enter alarm date">
-	<input type="date" onkeypress="return isNumeric(event)" class="form-control  colororange borderradiu backlightgrey" id="pay6" name="pay6" class="pay6" value="2014-02-09" >
+	<input type="date" onkeypress="return isNumeric(event)" class="form-control  colororange borderradiu backlightgrey" id="datealarm" name="datealarm" class="datealarm" 
+	value="2014-02-09" >
 	
     </abbr>
 	</div>
@@ -188,3 +194,4 @@
   <script type="text/javascript" src="assets/js/Check.js"></script>
 
 	    {/block}
+

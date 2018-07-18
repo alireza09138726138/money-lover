@@ -1,5 +1,5 @@
-  <link rel="stylesheet" href="assets/style/style.css">
-<link rel="stylesheet" href="assets/style/style index.css">
+   <link rel="stylesheet" href="assets/style/style.css">
+  <link rel="stylesheet" href="assets/style/style index.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="shortcut icon" href="assets/style/picture/pexels-photo-221174.png.jpg"/>
 
